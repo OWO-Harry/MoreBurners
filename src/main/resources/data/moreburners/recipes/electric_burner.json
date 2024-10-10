@@ -1,0 +1,26 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"result": {
+		"item": "moreburners:electric_burner",
+		"count": 1
+	},
+	"pattern": [
+		"ABA",
+		" C ",
+		" D "
+	],
+	"key": {
+		"A": {
+			"item": "minecraft:tinted_glass"
+		},
+		"B": {
+			"item": "moreburners:copper_coil"
+		},
+		"C": {
+			"item": "create:andesite_casing"
+		},
+		"D": {
+			"item": "create:empty_blaze_burner"
+		}
+	}
+}

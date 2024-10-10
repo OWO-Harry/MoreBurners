@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "B": {
+      "item": "embers:mechanical_core"
+    },
+    "C": {
+      "item": "create:empty_blaze_burner"
+    },
+    "I": {
+      "tag": "forge:ingots/iron"
+    },
+    "P": {
+      "tag": "forge:plates/dawnstone"
+    }
+  },
+  "pattern": [
+    "PPP",
+    "ICI",
+    " B "
+  ],
+  "result": {
+    "item": "moreburners:ember_burner"
+  }
+}

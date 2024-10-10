@@ -1,0 +1,17 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"result": {
+		"item": "moreburners:copper_coil",
+		"count": 1
+	},
+	"pattern": [
+		" A ",
+		"AAA",
+		" A "
+	],
+	"key": {
+		"A": {
+			"tag": "forge:ingots/copper"
+		}
+	}
+}

@@ -1,0 +1,24 @@
+{
+  "item.moreburners.copper_coil": "Copper Coil",
+  "item.moreburners.nickel_coil": "Resistance Coil",
+  "item.moreburners.incomplete_heat_upgrade": "Incomplete Heat Upgrade",
+  "item.moreburners.heat_upgrade": "Heat Upgrade",
+
+  "block.moreburners.ember_burner": "Dwarven Burner",
+  "block.moreburners.electric_burner": "Induction Heater",
+  "itemGroup.moreburners": "More Burners",
+
+  "moreburners.burner.status.title": "Burner Status:  %1$s",
+  "moreburners.burner.status.none": "None",
+  "moreburners.burner.status.smouldering": "None",
+  "moreburners.burner.status.fading": "Heated",
+  "moreburners.burner.status.kindled": "Heated",
+  "moreburners.burner.status.seething": "Super-Heated",
+  "moreburners.burner.status.heat": "Heat",
+  "moreburners.burner.status.dots": "...... ",
+  "moreburners.burner.status.upgraded": "Upgraded",
+  "moreburners.burner.energy.title": "Energy Consumed:",
+  "moreburners.burner.energy.unit": "FE",
+  "moreburners.burner.ember.title": "Ember Consumed:",
+  "moreburners.burner.per_tick": "per tick"
+}

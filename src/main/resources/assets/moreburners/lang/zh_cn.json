@@ -1,0 +1,24 @@
+{
+  "item.moreburners.copper_coil": "铜线圈",
+  "item.moreburners.nickel_coil": "电阻线圈",
+  "item.moreburners.incomplete_heat_upgrade": "未完工的 热量升级",
+  "item.moreburners.heat_upgrade": "热量升级",
+
+  "block.moreburners.ember_burner": "余烬燃烧室",
+  "block.moreburners.electric_burner": "电磁炉",
+  "itemGroup.moreburners": "机械动力：燃烧室附加",
+
+  "moreburners.burner.status.title": "燃烧室状态：%1$s",
+  "moreburners.burner.status.none": "无",
+  "moreburners.burner.status.smouldering": "无",
+  "moreburners.burner.status.fading": "加热",
+  "moreburners.burner.status.kindled": "加热",
+  "moreburners.burner.status.seething": "超级加热",
+  "moreburners.burner.status.heat": "热量",
+  "moreburners.burner.status.dots": "...... ",
+  "moreburners.burner.status.upgraded": "已升级",
+  "moreburners.burner.energy.title": "能量消耗：",
+  "moreburners.burner.energy.unit": "FE",
+  "moreburners.burner.ember.title": "余烬能量消耗：",
+  "moreburners.burner.per_tick": "每tick"
+}

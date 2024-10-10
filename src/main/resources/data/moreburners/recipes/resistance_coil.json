@@ -1,0 +1,20 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"result": {
+		"item": "moreburners:nickel_coil",
+		"count": 1
+	},
+	"pattern": [
+		" A ",
+		"ABA",
+		" A "
+	],
+	"key": {
+		"A": {
+			"tag": "forge:ingots/brass"
+		},
+		"B": {
+			"tag": "forge:ingots/copper"
+		}
+	}
+}

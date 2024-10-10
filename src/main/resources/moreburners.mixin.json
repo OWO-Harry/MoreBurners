@@ -1,0 +1,10 @@
+{
+  "required": true,
+  "package": "net.dragonegg.moreburners.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "AnimatedBlazeBurnerMixin",
+    "category.BasinCategoryMixin"
+  ],
+  "refmap": "moreburners.refmap.json"
+}
