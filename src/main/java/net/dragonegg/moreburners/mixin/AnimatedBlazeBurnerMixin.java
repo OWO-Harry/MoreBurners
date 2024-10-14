@@ -9,6 +9,7 @@ import net.dragonegg.moreburners.content.block.BaseBurnerBlock;
 import net.dragonegg.moreburners.util.BurnerUtil;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -46,12 +47,13 @@ public class AnimatedBlazeBurnerMixin {
         if(burnerIndex==burners.size()) {
             return instance.atLocal(0, 1.65, 0);
         }
+
+        HeatLevel level = heatLevel == HeatLevel.SEETHING? HeatLevel.SEETHING : HeatLevel.KINDLED;
+        BlockState state;
         BaseBurnerBlock block = ((BaseBurnerBlock) burners.get(burnerIndex));
-        if(heatLevel == HeatLevel.SEETHING) {
-            return AnimatedKinetics.defaultBlockElement(block.getState(HeatLevel.SEETHING)).atLocal(0, 1.65, 0);
-        }else{
-            return AnimatedKinetics.defaultBlockElement(block.getState(HeatLevel.KINDLED)).atLocal(0, 1.65, 0);
-        }
+        state = block.getState(level);
+
+        return AnimatedKinetics.defaultBlockElement(state).atLocal(0, 1.65, 0);
 
     }
 

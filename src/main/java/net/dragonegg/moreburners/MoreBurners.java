@@ -1,6 +1,5 @@
 package net.dragonegg.moreburners;
 
-import com.rekindled.embers.compat.curios.CuriosCompat;
 import net.dragonegg.moreburners.compat.embers.EmbersCompat;
 import net.dragonegg.moreburners.config.ClientConfig;
 import net.dragonegg.moreburners.config.CommonConfig;
@@ -26,9 +25,9 @@ public class MoreBurners {
 
     public static final String MODID = "moreburners";
 
-    public MoreBurners(FMLJavaModLoadingContext context) {
+    public MoreBurners() {
 
-        IEventBus modEventBus = context.getModEventBus();
+        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         modEventBus.addListener(this::commonSetup);
         BlockRegistry.BLOCKS.register(modEventBus);
@@ -36,8 +35,9 @@ public class MoreBurners {
         ItemRegistry.ITEMS.register(modEventBus);
         TabRegistry.CREATIVE_TABS.register(modEventBus);
         SoundRegistry.SOUND_EVENTS.register(modEventBus);
-        CommonConfig.register(context);
-        ClientConfig.register(context);
+
+        CommonConfig.registerCommonConfig();
+        ClientConfig.registerClientConfig();
         MinecraftForge.EVENT_BUS.register(this);
 
         if (ModList.get().isLoaded("embers")) {

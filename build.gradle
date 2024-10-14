@@ -172,7 +172,7 @@ dependencies {
     //runtimeOnly fg.deobf("dev.engine_room.flywheel:flywheel-forge-${minecraft_version}:${flywheel_version}")
 
 
-// Example mod dependency with JEI - using fg.deobf() ensures the dependency is remapped to your development mappings
+    // Example mod dependency with JEI - using fg.deobf() ensures the dependency is remapped to your development mappings
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
     // compileOnly fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}")
     // compileOnly fg.deobf("mezz.jei:jei-${mc_version}-forge-api:${jei_version}")
@@ -186,7 +186,6 @@ dependencies {
     // For more info:
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
-
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

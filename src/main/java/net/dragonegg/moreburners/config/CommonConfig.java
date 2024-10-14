@@ -1,6 +1,5 @@
 package net.dragonegg.moreburners.config;
 
-import net.dragonegg.moreburners.compat.embers.EmbersCompat;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.ForgeConfigSpec.ConfigValue;
 import net.minecraftforge.fml.ModList;
@@ -9,6 +8,9 @@ import net.minecraftforge.fml.config.ModConfig;
 
 
 public class CommonConfig {
+
+    public CommonConfig() {
+    }
 
     public static ConfigValue<Double> EMBER_BURNER_MAX_CAPACITY;
     public static ConfigValue<Double> EMBER_BURNER_EMBER_COST;
@@ -31,17 +33,9 @@ public class CommonConfig {
     public static ConfigValue<Double> FADING_HEAT;
     public static ConfigValue<Double> SMOULDERING_HEAT;
 
+    public static void registerCommonConfig(){
 
-    public static void register(ModLoadingContext modLoadingContext) {
         ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
-        CommonConfig instance = new CommonConfig(builder);
-        ForgeConfigSpec config = builder.build();
-        modLoadingContext.registerConfig(ModConfig.Type.COMMON,config);
-    }
-
-
-    private CommonConfig(ForgeConfigSpec.Builder builder){
-
         builder.comment("Settings for all burners' parameters").push("parameters");
         SEETHING_HEAT = builder.comment("The minimum heat value required to become seething. (super heating)").define("seething_heat", 340.0);
         KINDLED_HEAT = builder.comment("The minimum heat value required to become kindled. (heating)").define("kindled_heat", 200.0);
@@ -73,6 +67,7 @@ public class CommonConfig {
         builder.pop();
 
         builder.pop();
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, builder.build());
     }
 
 }

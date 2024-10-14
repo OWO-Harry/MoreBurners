@@ -36,6 +36,7 @@ import org.joml.Vector3f;
 import java.awt.*;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
@@ -206,7 +207,7 @@ public class EmberBurnerBlockEntity extends BaseBurnerBlockEntity implements IEx
     protected void spawnParticles(BlazeBurnerBlock.HeatLevel heatLevel) {
         if (this.level != null) {
             Block above = this.level.getBlockState(this.worldPosition.above()).getBlock();
-            if(!ClientConfig.isCovered(above)) {
+            if(!isCovered(above)) {
                 if (heatLevel.isAtLeast(BlazeBurnerBlock.HeatLevel.FADING)) {
 
                     Color color = new Color(255, 64, 16);
@@ -223,6 +224,21 @@ public class EmberBurnerBlockEntity extends BaseBurnerBlockEntity implements IEx
                 }
             }
         }
+    }
+
+    public static boolean isCovered(Block block) {
+        Iterator var1 = ((List)BLOCK_COVERED).iterator();
+        String pass;
+        String[] ids = block.getDescriptionId().split("\\.");
+        String id = ids[1] + ":" + ids[2];
+        do {
+            if (!var1.hasNext()) {
+                return false;
+            }
+            pass = (String)var1.next();
+        } while(!pass.equals(id));
+
+        return true;
     }
 
     public void addDialInformation(Direction facing, List<Component> information, String dialType) {
