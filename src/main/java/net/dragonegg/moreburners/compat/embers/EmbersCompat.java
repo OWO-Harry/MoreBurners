@@ -1,5 +1,7 @@
 package net.dragonegg.moreburners.compat.embers;
 
+import com.rekindled.embers.RegistryManager;
+import com.rekindled.embers.datagen.EmbersSounds;
 import net.dragonegg.moreburners.content.block.EmberBurnerBlock;
 import net.dragonegg.moreburners.content.block.entity.EmberBurnerBlockEntity;
 import net.dragonegg.moreburners.registry.BlockRegistry;
@@ -10,6 +12,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.registries.RegistryObject;
 
 public class EmbersCompat {
@@ -29,7 +32,7 @@ public class EmbersCompat {
     static {
 
         EMBER_BURNER = BlockRegistry.BLOCKS.register("ember_burner",
-                () -> new EmberBurnerBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK))
+                () -> new EmberBurnerBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).sound(EmbersSounds.CAMINITE).requiresCorrectToolForDrops().strength(1.6F))
         );
 
         EMBER_BURNER_ENTITY = BlockRegistry.BLOCK_ENTITY_TYPES.register("ember_burner",

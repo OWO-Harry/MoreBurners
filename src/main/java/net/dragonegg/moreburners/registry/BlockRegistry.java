@@ -21,7 +21,7 @@ public class BlockRegistry {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, MoreBurners.MODID);
 
     public static final RegistryObject<Block> ELECTRIC_BURNER = BLOCKS.register("electric_burner",
-            () -> new ElectricBurnerBlock(Properties.copy(Blocks.IRON_BLOCK))
+            () -> new ElectricBurnerBlock(Properties.copy(Blocks.STONE))
     );
 
     public static final RegistryObject<BlockEntityType<ElectricBurnerBlockEntity>>
