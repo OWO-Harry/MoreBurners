@@ -7,6 +7,7 @@ import net.dragonegg.moreburners.registry.ItemRegistry;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.ArrayList;
@@ -18,7 +19,9 @@ public class BurnerUtil {
     public static HashMap<Block, Item> CATALYST = new HashMap<>();
 
     public static void initCatalyst() {
-        CATALYST.put(EmbersCompat.EMBER_BURNER.get(), RegistryManager.ATMOSPHERIC_BELLOWS_ITEM.get());
+        if(ModList.get().isLoaded("embers")) {
+            CATALYST.put(EmbersCompat.EMBER_BURNER.get(), RegistryManager.ATMOSPHERIC_BELLOWS_ITEM.get());
+        }
         CATALYST.put(BlockRegistry.ELECTRIC_BURNER.get(), ItemRegistry.HEAT_UPGRADE.get());
     }
 
