@@ -62,10 +62,10 @@ public class CommonConfig {
 
         if(ModList.get().isLoaded("pneumaticcraft")) {
             builder.comment("Settings for heat converter's parameters").push("heat_converter");
-            HEAT_CONVERTER_SEETHING_TEMP = builder.comment("The minimum temperature required to become seething. (super heating)").define("seething_temp", 1800.0);
-            HEAT_CONVERTER_KINDLED_TEMP = builder.comment("The minimum temperature required to become kindled. (heating)").define("kindled_temp", 1000.0);
-            HEAT_CONVERTER_FADING_TEMP = builder.comment("The minimum temperature required to become fading. (heating)").define("fading_temp", 800.0);
-            HEAT_CONVERTER_SMOULDERING_TEMP = builder.comment("The minimum temperature required to become smouldering.").define("smouldering_temp", 400.0);
+            HEAT_CONVERTER_SEETHING_TEMP = builder.comment("The minimum temperature required to become seething. (super heating)").define("seething_temp", 1200.0);
+            HEAT_CONVERTER_KINDLED_TEMP = builder.comment("The minimum temperature required to become kindled. (heating)").define("kindled_temp", 450.0);
+            HEAT_CONVERTER_FADING_TEMP = builder.comment("The minimum temperature required to become fading. (heating)").define("fading_temp", 400.0);
+            HEAT_CONVERTER_SMOULDERING_TEMP = builder.comment("The minimum temperature required to become smouldering.").define("smouldering_temp", 200.0);
             HEAT_CONVERTER_TEMP_COST = builder.comment("The amount of temperature decreased per tick.").define("temp_cost", 2.0);
             builder.pop();
         }
