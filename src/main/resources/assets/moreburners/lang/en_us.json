@@ -3,9 +3,11 @@
   "item.moreburners.nickel_coil": "Resistance Coil",
   "item.moreburners.incomplete_heat_upgrade": "Incomplete Heat Upgrade",
   "item.moreburners.heat_upgrade": "Heat Upgrade",
+  "item.moreburners.converter_cover": "Converter Cover",
 
   "block.moreburners.ember_burner": "Dwarven Burner",
   "block.moreburners.electric_burner": "Induction Heater",
+  "block.moreburners.heat_converter": "Heat Converter",
   "itemGroup.moreburners": "More Burners",
 
   "moreburners.burner.status.title": "Burner Status:  %1$s",
@@ -20,5 +22,7 @@
   "moreburners.burner.energy.title": "Energy Consumed:",
   "moreburners.burner.energy.unit": "FE",
   "moreburners.burner.ember.title": "Ember Consumed:",
-  "moreburners.burner.per_tick": "per tick"
+  "moreburners.burner.per_tick": "per tick",
+
+  "block.pneumaticcraft.heat_converter": "Heat Converter"
 }

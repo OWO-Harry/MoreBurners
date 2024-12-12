@@ -164,10 +164,10 @@ dependencies {
     implementation fg.deobf("com.tterrag.registrate:Registrate:${registrate_version}")
     compileOnly fg.deobf("curse.maven:embers-rekindled-300777:5571196")
     runtimeOnly fg.deobf("curse.maven:embers-rekindled-300777:5571196")
-
     compileOnly fg.deobf("curse.maven:pneumaticcraft-repressurized-281849:5680613")
     runtimeOnly fg.deobf("curse.maven:pneumaticcraft-repressurized-281849:5680613")
     runtimeOnly fg.deobf("curse.maven:immersive-engineering-231951:5224387")
+    runtimeOnly fg.deobf("curse.maven:time-in-a-bottle-universal-895919:4744787")
     //compileOnly fg.deobf("dev.engine_room.flywheel:flywheel-forge-api-${minecraft_version}:${flywheel_version}")
     //runtimeOnly fg.deobf("dev.engine_room.flywheel:flywheel-forge-${minecraft_version}:${flywheel_version}")
 

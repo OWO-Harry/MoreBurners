@@ -49,8 +49,7 @@ public class AnimatedBlazeBurnerMixin {
         }
 
         HeatLevel level = heatLevel == HeatLevel.SEETHING? HeatLevel.SEETHING : HeatLevel.KINDLED;
-        BaseBurnerBlock block = ((BaseBurnerBlock) burners.get(burnerIndex));
-        BlockState state = block.getState(level);
+        BlockState state = BurnerUtil.getBurnerState(burners.get(burnerIndex), level);
 
         return AnimatedKinetics.defaultBlockElement(state).atLocal(0, 1.65, 0);
 

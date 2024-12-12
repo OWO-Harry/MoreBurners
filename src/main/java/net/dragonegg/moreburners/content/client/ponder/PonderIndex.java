@@ -1,11 +1,7 @@
-package net.dragonegg.moreburners.content.ponder;
+package net.dragonegg.moreburners.content.client.ponder;
 
 import com.simibubi.create.foundation.ponder.PonderRegistrationHelper;
 import net.dragonegg.moreburners.MoreBurners;
-import net.dragonegg.moreburners.content.ponder.scenes.EmberBurnerScenes;
-import net.dragonegg.moreburners.registry.BlockRegistry;
-import net.dragonegg.moreburners.util.ItemProviderUtil;
-import net.minecraft.resources.ResourceLocation;
 
 public class PonderIndex {
 

@@ -1,4 +1,4 @@
-package net.dragonegg.moreburners.content.ponder.scenes;
+package net.dragonegg.moreburners.content.client.ponder.scenes;
 
 import com.rekindled.embers.RegistryManager;
 import com.rekindled.embers.entity.EmberPacketEntity;

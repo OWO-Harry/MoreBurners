@@ -28,6 +28,11 @@ public class CommonConfig {
     public static ConfigValue<Double> ELECTRIC_BURNER_UPGRADED_MAX_HEAT;
     public static ConfigValue<Double> ELECTRIC_BURNER_HEATING_RATE;
     public static ConfigValue<Double> ELECTRIC_BURNER_COOLING_RATE;
+    public static ConfigValue<Double> HEAT_CONVERTER_SEETHING_TEMP;
+    public static ConfigValue<Double> HEAT_CONVERTER_KINDLED_TEMP;
+    public static ConfigValue<Double> HEAT_CONVERTER_FADING_TEMP;
+    public static ConfigValue<Double> HEAT_CONVERTER_SMOULDERING_TEMP;
+    public static ConfigValue<Double> HEAT_CONVERTER_TEMP_COST;
     public static ConfigValue<Double> SEETHING_HEAT;
     public static ConfigValue<Double> KINDLED_HEAT;
     public static ConfigValue<Double> FADING_HEAT;
@@ -52,6 +57,16 @@ public class CommonConfig {
             EMBER_BURNER_MAX_HEAT = builder.comment("The maximum heat value the ember burner can reach without atmospheric bellows.").define("max_heat", 300.0);
             EMBER_BURNER_MAX_HEAT_BELLOWS_1 = builder.comment("The maximum heat value the ember burner adjacent to atmospheric bellows can reach.").define("max_heat_1", 400.0);
             EMBER_BURNER_MAX_HEAT_BELLOWS_2 = builder.comment("The maximum heat value the ember burner one blocks away from atmospheric bellows can reach.").define("max_heat_2", 340.0);
+            builder.pop();
+        }
+
+        if(ModList.get().isLoaded("pneumaticcraft")) {
+            builder.comment("Settings for heat converter's parameters").push("heat_converter");
+            HEAT_CONVERTER_SEETHING_TEMP = builder.comment("The minimum temperature required to become seething. (super heating)").define("seething_temp", 1800.0);
+            HEAT_CONVERTER_KINDLED_TEMP = builder.comment("The minimum temperature required to become kindled. (heating)").define("kindled_temp", 1000.0);
+            HEAT_CONVERTER_FADING_TEMP = builder.comment("The minimum temperature required to become fading. (heating)").define("fading_temp", 800.0);
+            HEAT_CONVERTER_SMOULDERING_TEMP = builder.comment("The minimum temperature required to become smouldering.").define("smouldering_temp", 400.0);
+            HEAT_CONVERTER_TEMP_COST = builder.comment("The amount of temperature decreased per tick.").define("temp_cost", 2.0);
             builder.pop();
         }
 

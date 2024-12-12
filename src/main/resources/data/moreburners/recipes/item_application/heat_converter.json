@@ -1,0 +1,16 @@
+{
+  "type": "create:item_application",
+  "ingredients": [
+    {
+      "tag": "forge:storage_blocks/compressed_iron"
+    },
+    {
+      "item": "moreburners:converter_cover"
+    }
+  ],
+  "results": [
+    {
+      "item": "moreburners:heat_converter"
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 package net.dragonegg.moreburners;
 
 import net.dragonegg.moreburners.compat.embers.EmbersCompat;
+import net.dragonegg.moreburners.compat.pneumaticcraft.PneumaticCraftCompat;
 import net.dragonegg.moreburners.config.ClientConfig;
 import net.dragonegg.moreburners.config.CommonConfig;
 import net.dragonegg.moreburners.registry.BlockRegistry;
@@ -42,6 +43,10 @@ public class MoreBurners {
 
         if (ModList.get().isLoaded("embers")) {
             EmbersCompat.init();
+        }
+
+        if (ModList.get().isLoaded("pneumaticcraft")) {
+            PneumaticCraftCompat.init();
         }
 
     }

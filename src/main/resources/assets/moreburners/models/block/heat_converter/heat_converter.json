@@ -1,0 +1,23 @@
+{
+  "parent": "block/block",
+  "textures": {
+    "side": "moreburners:block/heat_converter/heat_converter_side",
+    "top": "moreburners:block/heat_converter/heat_converter_top",
+    "bottom": "pneumaticcraft:block/compressed_iron_block",
+    "particle": "moreburners:block/heat_converter/heat_converter_side"
+  },
+  "elements": [
+    {
+      "from": [ 0, 0, 0 ],
+      "to": [ 16, 16, 16 ],
+      "faces": {
+        "down":  { "uv": [ 0, 0, 16, 16 ], "texture": "#bottom", "cullface": "down", "tintindex": 0 },
+        "up":    { "uv": [ 0, 0, 16, 16 ], "texture": "#top", "cullface": "up", "tintindex": 1 },
+        "north": { "uv": [ 0, 0, 16, 16 ], "texture": "#side", "cullface": "north", "tintindex": 0 },
+        "south": { "uv": [ 0, 0, 16, 16 ], "texture": "#side", "cullface": "south", "tintindex": 0 },
+        "west":  { "uv": [ 0, 0, 16, 16 ], "texture": "#side", "cullface": "west", "tintindex": 0 },
+        "east":  { "uv": [ 0, 0, 16, 16 ], "texture": "#side", "cullface": "east", "tintindex": 0 }
+      }
+    }
+  ]
+}
