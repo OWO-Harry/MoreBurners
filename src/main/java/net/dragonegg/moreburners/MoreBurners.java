@@ -4,6 +4,7 @@ import net.dragonegg.moreburners.compat.embers.EmbersCompat;
 import net.dragonegg.moreburners.compat.pneumaticcraft.PneumaticCraftCompat;
 import net.dragonegg.moreburners.config.ClientConfig;
 import net.dragonegg.moreburners.config.CommonConfig;
+import net.dragonegg.moreburners.event.Events;
 import net.dragonegg.moreburners.registry.BlockRegistry;
 import net.dragonegg.moreburners.registry.ItemRegistry;
 import net.dragonegg.moreburners.registry.SoundRegistry;
@@ -52,9 +53,8 @@ public class MoreBurners {
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-
         BoilerHeaterRegistry.registerBoilerHeaters();
-
+        Events.register(MinecraftForge.EVENT_BUS);
     }
 
     @SubscribeEvent

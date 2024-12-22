@@ -24,5 +24,8 @@
   "moreburners.burner.ember.title": "Ember Consumed:",
   "moreburners.burner.per_tick": "per tick",
 
-  "block.pneumaticcraft.heat_converter": "Heat Converter"
+  "block.pneumaticcraft.heat_converter": "Heat Converter",
+
+  "botania.tagline.exoflame": "Ignites Fuelable Machines and speeds up Furnaces",
+  "botania.page.exoflame0": "Conversely to its $(thing)Generating$(0) counterpart, the $(item)Exoflame$(0) uses $(thing)Mana$(0) to generate heat.$(p)Any $(item)Furnaces$(0) near an active $(item)Exoflame$(0) are fueled and given a speed boost.$(p)$(item)Exoflame$(0) can fueled 9 heated or 1 superheated $(item)Blaze Burners$(0) by default."
 }

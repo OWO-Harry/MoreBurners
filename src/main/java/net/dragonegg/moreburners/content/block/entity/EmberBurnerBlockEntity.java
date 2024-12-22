@@ -17,7 +17,6 @@ import net.dragonegg.moreburners.compat.embers.EmbersCompat;
 import net.dragonegg.moreburners.config.ClientConfig;
 import net.dragonegg.moreburners.config.CommonConfig;
 import net.dragonegg.moreburners.content.block.EmberBurnerBlock;
-import net.dragonegg.moreburners.registry.BlockRegistry;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

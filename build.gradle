@@ -120,7 +120,6 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 mixin {
     add sourceSets.main, "${mod_id}.refmap.json"
-
     config "${mod_id}.mixin.json"
 }
 
@@ -158,7 +157,6 @@ dependencies {
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 
     implementation fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
-
     implementation fg.deobf("com.simibubi.create:create-${create_minecraft_version}:${create_version}:slim") { transitive = false }
     implementation fg.deobf("com.jozufozu.flywheel:flywheel-forge-${flywheel_minecraft_version}:${flywheel_version}")
     implementation fg.deobf("com.tterrag.registrate:Registrate:${registrate_version}")
@@ -166,8 +164,11 @@ dependencies {
     runtimeOnly fg.deobf("curse.maven:embers-rekindled-300777:5571196")
     compileOnly fg.deobf("curse.maven:pneumaticcraft-repressurized-281849:5680613")
     runtimeOnly fg.deobf("curse.maven:pneumaticcraft-repressurized-281849:5680613")
+    compileOnly fg.deobf("vazkii.botania:Botania:${minecraft_version}-${botania_version}-FORGE")
+    //runtimeOnly fg.deobf("vazkii.botania:Botania:${minecraft_version}-${botania_version}-FORGE")
     runtimeOnly fg.deobf("curse.maven:immersive-engineering-231951:5224387")
     runtimeOnly fg.deobf("curse.maven:time-in-a-bottle-universal-895919:4744787")
+    runtimeOnly fg.deobf("curse.maven:mekanism-268560:5984829")
     //compileOnly fg.deobf("dev.engine_room.flywheel:flywheel-forge-api-${minecraft_version}:${flywheel_version}")
     //runtimeOnly fg.deobf("dev.engine_room.flywheel:flywheel-forge-${minecraft_version}:${flywheel_version}")
 

@@ -33,6 +33,9 @@ public class CommonConfig {
     public static ConfigValue<Double> HEAT_CONVERTER_FADING_TEMP;
     public static ConfigValue<Double> HEAT_CONVERTER_SMOULDERING_TEMP;
     public static ConfigValue<Double> HEAT_CONVERTER_TEMP_COST;
+    public static ConfigValue<Integer> EXOFLAME_BOOST_RATE;
+    public static ConfigValue<Integer> EXOFLAME_SEETHING_BOOST_RATE;
+
     public static ConfigValue<Double> SEETHING_HEAT;
     public static ConfigValue<Double> KINDLED_HEAT;
     public static ConfigValue<Double> FADING_HEAT;
@@ -67,6 +70,13 @@ public class CommonConfig {
             HEAT_CONVERTER_FADING_TEMP = builder.comment("The minimum temperature required to become fading. (heating)").define("fading_temp", 400.0);
             HEAT_CONVERTER_SMOULDERING_TEMP = builder.comment("The minimum temperature required to become smouldering.").define("smouldering_temp", 200.0);
             HEAT_CONVERTER_TEMP_COST = builder.comment("The amount of temperature decreased per tick.").define("temp_cost", 2.0);
+            builder.pop();
+        }
+
+        if(ModList.get().isLoaded("botania")) {
+            builder.comment("Settings for exoflame compat parameters").push("exoflame_compat");
+            EXOFLAME_BOOST_RATE = builder.comment("Maximum number of blaze burner exoflame can provide heat sustainably.").define("boost_rate", 9);
+            EXOFLAME_SEETHING_BOOST_RATE = builder.comment("Maximum number of blaze burner exoflame can provide heat sustainably when superheated.").define("seething_boost_rate", 1);
             builder.pop();
         }
 

@@ -4,6 +4,7 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "AnimatedBlazeBurnerMixin",
+    "accessor.BlazeBurnerBlockEntityAccessor",
     "category.BasinCategoryMixin"
   ],
   "refmap": "moreburners.refmap.json"
