@@ -1,7 +1,5 @@
 package net.dragonegg.moreburners.content.block.entity;
 
-import com.simibubi.create.foundation.blockEntity.SmartBlockEntity;
-import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
 import com.simibubi.create.foundation.utility.Components;
 import com.simibubi.create.foundation.utility.Lang;
 import com.simibubi.create.foundation.utility.LangBuilder;
@@ -20,8 +18,8 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
-import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
+import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.energy.EnergyStorage;
 import net.minecraftforge.energy.IEnergyStorage;
 import org.jetbrains.annotations.NotNull;
@@ -76,7 +74,7 @@ public class ElectricBurnerBlockEntity extends BaseBurnerBlockEntity {
     }
 
     public <T> @NotNull LazyOptional<T> getCapability(@NotNull Capability<T> cap, Direction side) {
-        return !this.remove && cap == ForgeCapabilities.ENERGY ? this.energyCap.cast() : super.getCapability(cap, side);
+        return !this.remove && cap == CapabilityEnergy.ENERGY ? this.energyCap.cast() : super.getCapability(cap, side);
     }
 
     public void invalidateCaps() {

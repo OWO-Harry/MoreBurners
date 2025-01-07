@@ -1,6 +1,5 @@
 package net.dragonegg.moreburners.mixin.category;
 
-import com.rekindled.embers.RegistryManager;
 import com.simibubi.create.AllBlocks;
 import com.simibubi.create.AllItems;
 import com.simibubi.create.compat.jei.category.BasinCategory;

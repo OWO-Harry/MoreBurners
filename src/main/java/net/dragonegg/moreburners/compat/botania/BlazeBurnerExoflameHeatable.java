@@ -4,11 +4,11 @@ import com.simibubi.create.content.processing.burner.BlazeBurnerBlockEntity;
 import com.simibubi.create.content.processing.burner.BlazeBurnerBlockEntity.FuelType;
 import net.dragonegg.moreburners.config.CommonConfig;
 import net.dragonegg.moreburners.mixin.accessor.BlazeBurnerBlockEntityAccessor;
-import vazkii.botania.api.block.ExoflameHeatable;
+import vazkii.botania.api.block.IExoflameHeatable;
 
 import static com.simibubi.create.content.processing.burner.BlazeBurnerBlockEntity.MAX_HEAT_CAPACITY;
 
-public class BlazeBurnerExoflameHeatable implements ExoflameHeatable {
+public class BlazeBurnerExoflameHeatable implements IExoflameHeatable {
 
     public static int BOOST_RATE = CommonConfig.EXOFLAME_BOOST_RATE.get();
     public static int SEETHING_BOOST_RATE = CommonConfig.EXOFLAME_SEETHING_BOOST_RATE.get();

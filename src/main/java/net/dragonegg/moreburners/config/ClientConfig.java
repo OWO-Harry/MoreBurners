@@ -24,13 +24,6 @@ public class ClientConfig {
         builder.comment("Settings for all burners' parameters").push("parameters");
         HEAT_BAR_LENGTH = builder.comment("The length of the heat bar in create goggle gui of burners.").define("bar_length",18);
 
-        if (ModList.get().isLoaded("embers")) {
-            builder.comment("Settings for ember burner's parameters").push("ember_burner");
-            List<String> preferences = new ArrayList<>();
-            EMBER_BURNER_BLOCK_COVERED = builder.comment("Blocks that cover ember burner's flame particles.").defineList("blockCovered", preferences, (a) -> true);
-            builder.pop();
-        }
-
         builder.pop();
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, builder.build());
     }

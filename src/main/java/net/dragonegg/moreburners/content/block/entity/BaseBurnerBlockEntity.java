@@ -2,7 +2,6 @@ package net.dragonegg.moreburners.content.block.entity;
 
 import com.simibubi.create.content.equipment.goggles.IHaveGoggleInformation;
 import com.simibubi.create.content.processing.burner.BlazeBurnerBlock;
-import com.simibubi.create.content.redstone.displayLink.DisplayLinkBlock;
 import com.simibubi.create.foundation.utility.*;
 import joptsimple.internal.Strings;
 import net.dragonegg.moreburners.MoreBurners;

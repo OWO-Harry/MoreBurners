@@ -1,5 +1,4 @@
 {
-	"render_type": "minecraft:translucent",
 	"texture_size": [32, 32],
 	"textures": {
 		"0": "moreburners:block/electric_burner/sturdy_sheet_side_panel",

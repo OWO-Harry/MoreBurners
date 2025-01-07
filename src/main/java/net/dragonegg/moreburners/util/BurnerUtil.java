@@ -1,11 +1,8 @@
 package net.dragonegg.moreburners.util;
 
-import com.rekindled.embers.RegistryManager;
 import com.simibubi.create.content.processing.burner.BlazeBurnerBlock.HeatLevel;
-import net.dragonegg.moreburners.compat.embers.EmbersCompat;
 import net.dragonegg.moreburners.compat.pneumaticcraft.PneumaticCraftCompat;
 import net.dragonegg.moreburners.content.block.BaseBurnerBlock;
-import net.dragonegg.moreburners.content.block.HeatConverterBlock;
 import net.dragonegg.moreburners.registry.BlockRegistry;
 import net.dragonegg.moreburners.registry.ItemRegistry;
 import net.minecraft.world.item.Item;
@@ -25,9 +22,6 @@ public class BurnerUtil {
     public static HashMap<Block, Item> CATALYST = new HashMap<>();
 
     public static void initCatalyst() {
-        if(ModList.get().isLoaded("embers")) {
-            CATALYST.put(EmbersCompat.EMBER_BURNER.get(), RegistryManager.ATMOSPHERIC_BELLOWS_ITEM.get());
-        }
         if(ModList.get().isLoaded("pneumaticcraft")) {
             CATALYST.put(PneumaticCraftCompat.HEAT_CONVERTER.get(), Items.AIR);
         }

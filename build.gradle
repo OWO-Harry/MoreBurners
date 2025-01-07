@@ -165,6 +165,10 @@ dependencies {
     compileOnly fg.deobf("vazkii.botania:Botania:${minecraft_version}-${botania_version}")
     //runtimeOnly fg.deobf("vazkii.botania:Botania:${minecraft_version}-${botania_version}-FORGE")
 
+    runtimeOnly fg.deobf("curse.maven:patchouli-306770:3846086")
+    runtimeOnly fg.deobf("curse.maven:mekanism-268560:3875976")
+    runtimeOnly fg.deobf("curse.maven:time-in-a-bottle-standalone-445025:3565298")
+
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 
 }

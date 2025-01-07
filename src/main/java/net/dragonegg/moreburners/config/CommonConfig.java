@@ -12,14 +12,6 @@ public class CommonConfig {
     public CommonConfig() {
     }
 
-    public static ConfigValue<Double> EMBER_BURNER_MAX_CAPACITY;
-    public static ConfigValue<Double> EMBER_BURNER_EMBER_COST;
-    public static ConfigValue<Double> EMBER_BURNER_HEATING_RATE;
-    public static ConfigValue<Double> EMBER_BURNER_COOLING_RATE;
-    public static ConfigValue<Double> EMBER_BURNER_RATE_BELLOWS_MULTIPLIER;
-    public static ConfigValue<Double> EMBER_BURNER_MAX_HEAT;
-    public static ConfigValue<Double> EMBER_BURNER_MAX_HEAT_BELLOWS_1;
-    public static ConfigValue<Double> EMBER_BURNER_MAX_HEAT_BELLOWS_2;
     public static ConfigValue<Integer> ELECTRIC_BURNER_MAX_CAPACITY;
     public static ConfigValue<Integer> ELECTRIC_BURNER_ENERGY_COST;
     public static ConfigValue<Double> ELECTRIC_BURNER_ENERGY_MULTIPLIER_1;
@@ -49,19 +41,6 @@ public class CommonConfig {
         KINDLED_HEAT = builder.comment("The minimum heat value required to become kindled. (heating)").define("kindled_heat", 200.0);
         FADING_HEAT = builder.comment("The minimum heat value required to become fading. (heating)").define("fading_heat", 160.0);
         SMOULDERING_HEAT = builder.comment("The minimum heat value required to become smouldering.").define("smouldering_heat", 80.0);
-
-        if (ModList.get().isLoaded("embers")) {
-            builder.comment("Settings for ember burner's parameters").push("ember_burner");
-            EMBER_BURNER_MAX_CAPACITY = builder.comment("The max amount of ember capacity.").define("max_capacity", 6000.0);
-            EMBER_BURNER_EMBER_COST = builder.comment("The amount of ember consumed per tick.").define("ember_cost", 1.0);
-            EMBER_BURNER_HEATING_RATE = builder.comment("The amount of heat gained per tick when consuming ember.").define("heating_rate", 1.0);
-            EMBER_BURNER_COOLING_RATE = builder.comment("The amount of heat lost per tick when not consuming ember.").define("cooling_rate", 1.0);
-            EMBER_BURNER_RATE_BELLOWS_MULTIPLIER = builder.comment("The value to multiply on the heating rate and the cooling rate when ember burner is adjacent to atmospheric bellows.").define("rate_multiplier", 2.0);
-            EMBER_BURNER_MAX_HEAT = builder.comment("The maximum heat value the ember burner can reach without atmospheric bellows.").define("max_heat", 300.0);
-            EMBER_BURNER_MAX_HEAT_BELLOWS_1 = builder.comment("The maximum heat value the ember burner adjacent to atmospheric bellows can reach.").define("max_heat_1", 400.0);
-            EMBER_BURNER_MAX_HEAT_BELLOWS_2 = builder.comment("The maximum heat value the ember burner one blocks away from atmospheric bellows can reach.").define("max_heat_2", 340.0);
-            builder.pop();
-        }
 
         if(ModList.get().isLoaded("pneumaticcraft")) {
             builder.comment("Settings for heat converter's parameters").push("heat_converter");

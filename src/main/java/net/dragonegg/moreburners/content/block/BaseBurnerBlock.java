@@ -4,6 +4,7 @@ import com.simibubi.create.content.equipment.wrench.IWrenchable;
 import com.simibubi.create.content.processing.basin.BasinBlockEntity;
 import com.simibubi.create.content.processing.burner.BlazeBurnerBlock;
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
@@ -71,9 +72,9 @@ public abstract class BaseBurnerBlock extends BaseEntityBlock implements IWrench
         }
 
         if (!entity.isSteppingCarefully() && entity instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity)entity)) {
-            entity.hurt(level.damageSources().hotFloor(), damage);
+            entity.hurt(DamageSource.HOT_FLOOR, damage);
         }
-        if (giveFire && !entity.fireImmune()) {
+        if (giveFire && entity instanceof LivingEntity && !entity.fireImmune()) {
             entity.setSecondsOnFire(time);
         }
 
