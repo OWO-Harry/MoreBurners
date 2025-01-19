@@ -165,7 +165,7 @@ dependencies {
     compileOnly fg.deobf("vazkii.botania:Botania:${minecraft_version}-${botania_version}-FORGE")
     //runtimeOnly fg.deobf("vazkii.botania:Botania:${minecraft_version}-${botania_version}-FORGE")
 
-    compileOnly fg.deobf("com.hollingsworth.ars_nouveau:ars_nouveau-${minecraft_version}:${ars_nouveau_version}")
+    //compileOnly fg.deobf("com.hollingsworth.ars_nouveau:ars_nouveau-${minecraft_version}:${ars_nouveau_version}")
     //runtimeOnly fg.deobf("com.hollingsworth.ars_nouveau:ars_nouveau-${minecraft_version}:${ars_nouveau_version}")
 
     runtimeOnly fg.deobf("curse.maven:immersive-engineering-231951:5224387")

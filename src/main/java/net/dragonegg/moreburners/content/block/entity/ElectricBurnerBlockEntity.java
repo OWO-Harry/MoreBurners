@@ -45,16 +45,12 @@ public class ElectricBurnerBlockEntity extends BaseBurnerBlockEntity {
 
     public ElectricBurnerBlockEntity(BlockPos pos, BlockState state) {
         super(BlockRegistry.ELECTRIC_BURNER_ENTITY.get(), pos, state);
-        this.heat = 0.0;
         this.max_heat = MAX_HEAT;
-        this.ticksExisted = 0;
         this.energy_cost = ENERGY_COST;
         this.upgraded = false;
     }
 
-    private final LazyOptional<IEnergyStorage> energyCap = LazyOptional.of(() -> {
-        return energy;
-    });
+    private final LazyOptional<IEnergyStorage> energyCap = LazyOptional.of(() -> energy);
 
     public void load(@NotNull CompoundTag nbt) {
         super.load(nbt);
@@ -119,18 +115,21 @@ public class ElectricBurnerBlockEntity extends BaseBurnerBlockEntity {
             case FADING, KINDLED -> ENERGY_MULTIPLIER_1;
             case SEETHING -> ENERGY_MULTIPLIER_2;
         };
-        if (level.isClientSide) {
-
-        }else {
+        if (!level.isClientSide()) {
 
             double prevHeat = this.heat;
             if (this.energy.getEnergyStored() > (int)this.energy_cost) {
                 this.energy.extractEnergy((int)this.energy_cost, false);
-                if (this.ticksExisted % 20 == 0) {
+            } else {
+                this.canWork = false;
+            }
+            if (this.ticksExisted % 20 == 0) {
+                if (this.canWork) {
                     this.heat += HEATING_RATE;
+                } else {
+                    this.heat -= COOLING_RATE;
                 }
-            }else if (this.ticksExisted % 20 == 0) {
-                this.heat -= COOLING_RATE;
+                this.canWork = true;
             }
             this.heat = Mth.clamp(this.heat, 0.0, max_heat);
             if (this.heat != prevHeat) {

@@ -136,11 +136,16 @@ public class EmberBurnerBlockEntity extends BaseBurnerBlockEntity implements IEx
             }
             if (this.capability.getEmber() >= EMBER_COST) {
                 this.capability.removeAmount(EMBER_COST, true);
-                if (this.ticksExisted % 20 == 0) {
+            } else {
+                this.canWork = false;
+            }
+            if (this.ticksExisted % 20 == 0) {
+                if (this.canWork) {
                     this.heat += heatingRate;
+                } else {
+                    this.heat -= coolingRate;
                 }
-            }else if (this.ticksExisted % 20 == 0) {
-                this.heat -= coolingRate;
+                this.canWork = true;
             }
             this.heat = Mth.clamp(this.heat, 0.0, max_heat);
             if (this.heat != prevHeat) {

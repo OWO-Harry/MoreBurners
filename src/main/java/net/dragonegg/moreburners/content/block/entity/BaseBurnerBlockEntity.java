@@ -42,10 +42,14 @@ public abstract class BaseBurnerBlockEntity extends BlockEntity implements IHave
     public double heat;
     public double max_heat;
     protected int ticksExisted;
+    protected boolean canWork;
     protected int redstoneStrength;
 
     public BaseBurnerBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
+        this.heat = 0.0;
+        this.ticksExisted = 0;
+        this.canWork = true;
         this.redstoneStrength = 0;
     }
 

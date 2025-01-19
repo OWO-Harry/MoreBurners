@@ -54,8 +54,8 @@ public class CommonConfig {
             builder.comment("Settings for ember burner's parameters").push("ember_burner");
             EMBER_BURNER_MAX_CAPACITY = builder.comment("The max amount of ember capacity.").define("max_capacity", 6000.0);
             EMBER_BURNER_EMBER_COST = builder.comment("The amount of ember consumed per tick.").define("ember_cost", 1.0);
-            EMBER_BURNER_HEATING_RATE = builder.comment("The amount of heat gained per tick when consuming ember.").define("heating_rate", 1.0);
-            EMBER_BURNER_COOLING_RATE = builder.comment("The amount of heat lost per tick when not consuming ember.").define("cooling_rate", 1.0);
+            EMBER_BURNER_HEATING_RATE = builder.comment("The amount of heat gained per second when consuming ember.").define("heating_rate", 1.5);
+            EMBER_BURNER_COOLING_RATE = builder.comment("The amount of heat lost per second when not consuming ember.").define("cooling_rate", 1.0);
             EMBER_BURNER_RATE_BELLOWS_MULTIPLIER = builder.comment("The value to multiply on the heating rate and the cooling rate when ember burner is adjacent to atmospheric bellows.").define("rate_multiplier", 2.0);
             EMBER_BURNER_MAX_HEAT = builder.comment("The maximum heat value the ember burner can reach without atmospheric bellows.").define("max_heat", 300.0);
             EMBER_BURNER_MAX_HEAT_BELLOWS_1 = builder.comment("The maximum heat value the ember burner adjacent to atmospheric bellows can reach.").define("max_heat_1", 400.0);
@@ -82,11 +82,11 @@ public class CommonConfig {
 
         builder.comment("Settings for electric burner's parameters").push("electric_burner");
         ELECTRIC_BURNER_MAX_CAPACITY = builder.comment("The max amount of energy capacity.").define("max_capacity", 50000);
-        ELECTRIC_BURNER_ENERGY_COST = builder.comment("The amount of energy consumed per tick.").define("energy_cost", 100);
+        ELECTRIC_BURNER_ENERGY_COST = builder.comment("The amount of energy consumed per tick.").define("energy_cost", 80);
         ELECTRIC_BURNER_ENERGY_MULTIPLIER_1 = builder.comment("The value to multiply on the energy consumed per tick when heating.").define("energy_multiplier_1", 1.5);
         ELECTRIC_BURNER_ENERGY_MULTIPLIER_2 = builder.comment("The value to multiply on the energy consumed per tick when super heating.").define("energy_multiplier_2", 2.0);
-        ELECTRIC_BURNER_HEATING_RATE = builder.comment("The amount of heat gained per tick when consuming energy.").define("heating_rate", 1.0);
-        ELECTRIC_BURNER_COOLING_RATE = builder.comment("The amount of heat lost per tick when not consuming energy.").define("cooling_rate", 1.0);
+        ELECTRIC_BURNER_HEATING_RATE = builder.comment("The amount of heat gained per second when consuming energy.").define("heating_rate", 2.0);
+        ELECTRIC_BURNER_COOLING_RATE = builder.comment("The amount of heat lost per second when not consuming energy.").define("cooling_rate", 1.0);
         ELECTRIC_BURNER_MAX_HEAT = builder.comment("The maximum heat value the electric burner can reach before upgraded.").define("max_heat", 300.0);
         ELECTRIC_BURNER_UPGRADED_MAX_HEAT = builder.comment("The maximum heat value the electric burner can reach after upgraded.").define("upgraded_max_heat", 400.0);
         builder.pop();
