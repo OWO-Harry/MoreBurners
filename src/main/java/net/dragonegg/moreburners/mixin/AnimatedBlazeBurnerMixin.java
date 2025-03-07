@@ -4,8 +4,7 @@ import com.simibubi.create.compat.jei.category.animations.AnimatedBlazeBurner;
 import com.simibubi.create.compat.jei.category.animations.AnimatedKinetics;
 import com.simibubi.create.content.processing.burner.BlazeBurnerBlock;
 import com.simibubi.create.content.processing.burner.BlazeBurnerBlock.HeatLevel;
-import com.simibubi.create.foundation.gui.element.GuiGameElement.GuiRenderBuilder;
-import net.dragonegg.moreburners.content.block.BaseBurnerBlock;
+import net.createmod.catnip.gui.element.GuiGameElement;
 import net.dragonegg.moreburners.util.BurnerUtil;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.world.level.block.Block;
@@ -14,6 +13,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
 import java.util.List;
@@ -31,12 +31,12 @@ public class AnimatedBlazeBurnerMixin {
             method = "draw",
             at = @At(
                     value = "INVOKE",
-                    target = "Lcom/simibubi/create/foundation/gui/element/GuiGameElement$GuiRenderBuilder;atLocal(DDD)Lcom/simibubi/create/foundation/gui/element/GuiGameElement$GuiRenderBuilder;",
+                    target = "Lnet/createmod/catnip/gui/element/GuiGameElement$GuiRenderBuilder;atLocal(DDD)Lnet/createmod/catnip/gui/element/GuiGameElement$GuiRenderBuilder;",
                     ordinal = 0
             ),
             remap = false
     )
-    private GuiRenderBuilder onDraw$addBurnerVariety(GuiRenderBuilder instance, double x, double y, double z){
+    private GuiGameElement.GuiRenderBuilder onDraw$addBurnerVariety(GuiGameElement.GuiRenderBuilder instance, double x, double y, double z){
 
         long time = System.currentTimeMillis();
 

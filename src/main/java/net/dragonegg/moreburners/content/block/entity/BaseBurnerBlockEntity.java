@@ -1,10 +1,11 @@
 package net.dragonegg.moreburners.content.block.entity;
 
-import com.simibubi.create.content.equipment.goggles.IHaveGoggleInformation;
+import com.simibubi.create.api.equipment.goggles.IHaveGoggleInformation;
 import com.simibubi.create.content.processing.burner.BlazeBurnerBlock;
-import com.simibubi.create.content.redstone.displayLink.DisplayLinkBlock;
-import com.simibubi.create.foundation.utility.*;
 import joptsimple.internal.Strings;
+import net.createmod.catnip.data.Iterate;
+import net.createmod.catnip.lang.Lang;
+import net.createmod.catnip.lang.LangBuilder;
 import net.dragonegg.moreburners.MoreBurners;
 import net.dragonegg.moreburners.config.ClientConfig;
 import net.dragonegg.moreburners.config.CommonConfig;
@@ -29,7 +30,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-import static com.simibubi.create.foundation.utility.LangBuilder.DEFAULT_SPACE_WIDTH;
+import static net.createmod.catnip.lang.LangBuilder.DEFAULT_SPACE_WIDTH;
 
 public abstract class BaseBurnerBlockEntity extends BlockEntity implements IHaveGoggleInformation {
 
@@ -148,7 +149,7 @@ public abstract class BaseBurnerBlockEntity extends BlockEntity implements IHave
             case SEETHING -> ChatFormatting.BLUE;
         };
         forGoggles(tooltip, Lang.builder(MoreBurners.MODID).translate("burner.status.title",
-                Components.translatable(MoreBurners.MODID + ".burner.status." + getHeatLevel().name().toLowerCase()).withStyle(formatting)), 0);
+                Component.translatable(MoreBurners.MODID + ".burner.status." + getHeatLevel().name().toLowerCase()).withStyle(formatting)), 0);
         forGoggles(tooltip, Lang.builder(MoreBurners.MODID).add(getHeatComponent(true)), 1);
         return true;
 
@@ -176,21 +177,21 @@ public abstract class BaseBurnerBlockEntity extends BlockEntity implements IHave
 
     private MutableComponent componentHelper(int level, boolean forGoggles) {
         MutableComponent base =
-                Components.empty()
+                Component.empty()
                         .append(bars(level, ChatFormatting.DARK_GREEN))
                         .append(bars(BAR_LENGTH-level, ChatFormatting.DARK_RED));
 
         if (!forGoggles)
             return base;
 
-        return Components.translatable(MoreBurners.MODID + ".burner.status.heat")
+        return Component.translatable(MoreBurners.MODID + ".burner.status.heat")
                 .withStyle(ChatFormatting.GRAY)
-                .append(Components.translatable(MoreBurners.MODID + ".burner.status.dots")
+                .append(Component.translatable(MoreBurners.MODID + ".burner.status.dots")
                         .withStyle(ChatFormatting.DARK_GRAY))
                 .append(base);
     }
 
     private MutableComponent bars(int level, ChatFormatting format) {
-        return Components.literal(Strings.repeat('|', level)).withStyle(format);
+        return Component.literal(Strings.repeat('|', level)).withStyle(format);
     }
 }
