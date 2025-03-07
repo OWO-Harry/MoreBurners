@@ -1,11 +1,8 @@
 package net.dragonegg.moreburners.content.block.entity;
 
-import com.simibubi.create.foundation.blockEntity.SmartBlockEntity;
-import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
-import com.simibubi.create.foundation.utility.Components;
-import com.simibubi.create.foundation.utility.Lang;
-import com.simibubi.create.foundation.utility.LangBuilder;
-import com.simibubi.create.foundation.utility.LangNumberFormat;
+import net.createmod.catnip.lang.Lang;
+import net.createmod.catnip.lang.LangBuilder;
+import net.createmod.catnip.lang.LangNumberFormat;
 import net.dragonegg.moreburners.MoreBurners;
 import net.dragonegg.moreburners.config.CommonConfig;
 import net.dragonegg.moreburners.content.block.ElectricBurnerBlock;
@@ -147,7 +144,7 @@ public class ElectricBurnerBlockEntity extends BaseBurnerBlockEntity {
             forGoggles(tooltip, Lang.builder(MoreBurners.MODID).translate("burner.status.upgraded").style(ChatFormatting.BLUE), 1);
         }
 
-        tooltip.add(Components.immutableEmpty());
+        tooltip.add(Component.empty());
         forGoggles(tooltip, Lang.builder(MoreBurners.MODID).translate("burner.energy.title").style(ChatFormatting.GRAY), 0);
         LangBuilder builder = Lang.builder(MoreBurners.MODID).text(LangNumberFormat.format((int)this.energy_cost))
                 .translate("burner.energy.unit")

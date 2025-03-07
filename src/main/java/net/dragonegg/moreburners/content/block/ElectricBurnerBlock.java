@@ -1,9 +1,9 @@
 package net.dragonegg.moreburners.content.block;
 
 import com.simibubi.create.AllBlocks;
+import com.simibubi.create.content.equipment.wrench.IWrenchable;
 import com.simibubi.create.content.kinetics.base.KineticBlockEntity;
 import com.simibubi.create.content.processing.burner.BlazeBurnerBlock;
-import com.simibubi.create.foundation.utility.Iterate;
 import net.dragonegg.moreburners.MoreBurners;
 import net.dragonegg.moreburners.content.block.entity.BaseBurnerBlockEntity;
 import net.dragonegg.moreburners.content.block.entity.ElectricBurnerBlockEntity;
@@ -81,7 +81,7 @@ public class ElectricBurnerBlock extends BaseBurnerBlock {
         BlockEntity entity = level.getBlockEntity(pos);
         if(entity instanceof ElectricBurnerBlockEntity ebbe) {
             ebbe.setUpgrade(false);
-            playRemoveSound(level,pos);
+            IWrenchable.playRemoveSound(level,pos);
             if (player != null && !player.isCreative()) {
                 ItemStack returned = ItemRegistry.HEAT_UPGRADE.get().getDefaultInstance();
                 player.getInventory().placeItemBackInInventory(returned);

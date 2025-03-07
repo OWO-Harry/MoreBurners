@@ -8,10 +8,9 @@ import com.rekindled.embers.particle.GlowParticleOptions;
 import com.rekindled.embers.power.DefaultEmberCapability;
 import com.rekindled.embers.util.DecimalFormats;
 import com.simibubi.create.content.processing.burner.BlazeBurnerBlock;
-import com.simibubi.create.foundation.utility.Components;
-import com.simibubi.create.foundation.utility.Lang;
-import com.simibubi.create.foundation.utility.LangBuilder;
-import com.simibubi.create.foundation.utility.LangNumberFormat;
+import net.createmod.catnip.lang.Lang;
+import net.createmod.catnip.lang.LangBuilder;
+import net.createmod.catnip.lang.LangNumberFormat;
 import net.dragonegg.moreburners.MoreBurners;
 import net.dragonegg.moreburners.compat.embers.EmbersCompat;
 import net.dragonegg.moreburners.config.ClientConfig;
@@ -256,7 +255,7 @@ public class EmberBurnerBlockEntity extends BaseBurnerBlockEntity implements IEx
     public boolean addToGoggleTooltip(List<Component> tooltip, boolean isPlayerSneaking) {
         boolean added = super.addToGoggleTooltip(tooltip,isPlayerSneaking);
 
-        tooltip.add(Components.immutableEmpty());
+        tooltip.add(Component.empty());
         forGoggles(tooltip, Lang.builder(MoreBurners.MODID).translate("burner.ember.title").style(ChatFormatting.GRAY), 0);
         LangBuilder builder = Lang.builder(MoreBurners.MODID).text(LangNumberFormat.format(EMBER_COST))
                 .style(ChatFormatting.AQUA)

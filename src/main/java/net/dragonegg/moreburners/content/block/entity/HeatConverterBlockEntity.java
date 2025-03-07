@@ -1,10 +1,7 @@
 package net.dragonegg.moreburners.content.block.entity;
 
-import com.simibubi.create.content.equipment.goggles.IHaveGoggleInformation;
+import com.simibubi.create.api.equipment.goggles.IHaveGoggleInformation;
 import com.simibubi.create.content.processing.burner.BlazeBurnerBlock;
-import com.simibubi.create.foundation.utility.Components;
-import com.simibubi.create.foundation.utility.Lang;
-import com.simibubi.create.foundation.utility.LangBuilder;
 import joptsimple.internal.Strings;
 import me.desht.pneumaticcraft.api.PneumaticRegistry;
 import me.desht.pneumaticcraft.api.heat.IHeatExchangerLogic;
@@ -13,6 +10,8 @@ import me.desht.pneumaticcraft.common.block.entity.*;
 import me.desht.pneumaticcraft.common.heat.HeatUtil;
 import me.desht.pneumaticcraft.common.heat.SyncedTemperature;
 import me.desht.pneumaticcraft.common.network.*;
+import net.createmod.catnip.lang.Lang;
+import net.createmod.catnip.lang.LangBuilder;
 import net.dragonegg.moreburners.MoreBurners;
 import net.dragonegg.moreburners.compat.pneumaticcraft.PneumaticCraftCompat;
 import net.dragonegg.moreburners.config.ClientConfig;
@@ -34,7 +33,8 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-import static com.simibubi.create.foundation.utility.LangBuilder.DEFAULT_SPACE_WIDTH;
+import static net.createmod.catnip.lang.LangBuilder.DEFAULT_SPACE_WIDTH;
+
 
 public class HeatConverterBlockEntity extends AbstractTickingBlockEntity implements IComparatorSupport, IHeatTinted, IHeatExchangingTE, IHaveGoggleInformation {
 
@@ -157,7 +157,7 @@ public class HeatConverterBlockEntity extends AbstractTickingBlockEntity impleme
             case SEETHING -> ChatFormatting.BLUE;
         };
         forGoggles(tooltip, Lang.builder(MoreBurners.MODID).translate("burner.status.title",
-                Components.translatable(MoreBurners.MODID + ".burner.status." + level.name().toLowerCase()).withStyle(formatting)), 0);
+                Component.translatable(MoreBurners.MODID + ".burner.status." + level.name().toLowerCase()).withStyle(formatting)), 0);
         forGoggles(tooltip, Lang.builder(MoreBurners.MODID).add(getHeatComponent(true)), 1);
         return true;
 
@@ -175,6 +175,7 @@ public class HeatConverterBlockEntity extends AbstractTickingBlockEntity impleme
         if (DEFAULT_SPACE_WIDTH == spaceWidth) {
             return defaultIndents;
         }
+
         return Mth.ceil(DEFAULT_SPACE_WIDTH * defaultIndents / spaceWidth);
     }
 
@@ -185,22 +186,22 @@ public class HeatConverterBlockEntity extends AbstractTickingBlockEntity impleme
 
     private MutableComponent componentHelper(int level, boolean forGoggles) {
         MutableComponent base =
-                Components.empty()
+                Component.empty()
                         .append(bars(level, ChatFormatting.DARK_GREEN))
                         .append(bars(BAR_LENGTH-level, ChatFormatting.DARK_RED));
 
         if (!forGoggles)
             return base;
 
-        return Components.translatable(MoreBurners.MODID + ".burner.status.heat")
+        return Component.translatable(MoreBurners.MODID + ".burner.status.heat")
                 .withStyle(ChatFormatting.GRAY)
-                .append(Components.translatable(MoreBurners.MODID + ".burner.status.dots")
+                .append(Component.translatable(MoreBurners.MODID + ".burner.status.dots")
                         .withStyle(ChatFormatting.DARK_GRAY))
                 .append(base);
     }
 
     private MutableComponent bars(int level, ChatFormatting format) {
-        return Components.literal(Strings.repeat('|', level)).withStyle(format);
+        return Component.literal(Strings.repeat('|', level)).withStyle(format);
     }
 
 }

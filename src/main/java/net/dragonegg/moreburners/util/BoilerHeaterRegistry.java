@@ -1,24 +1,27 @@
 package net.dragonegg.moreburners.util;
 
 
+import com.simibubi.create.api.boiler.BoilerHeater;
+import com.simibubi.create.api.registry.CreateRegistries;
 import com.simibubi.create.content.fluids.tank.BoilerHeaters;
 import com.simibubi.create.content.processing.burner.BlazeBurnerBlock;
 import net.dragonegg.moreburners.content.block.BaseBurnerBlock;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.registries.DeferredRegister;
 
 public class BoilerHeaterRegistry {
-
     public static void registerBoilerHeaters() {
         for (Block block : BurnerUtil.getBurners()) {
             register(block);
         }
     }
 
-    public static void register(Block block){
-        if(!(block instanceof BaseBurnerBlock)){
+
+    public static void register(Block block) {
+        if (!(block instanceof BaseBurnerBlock)) {
             return;
         }
-        BoilerHeaters.registerHeater(block, (level, pos, state) -> {
+        BoilerHeater.REGISTRY.register(block, (level, pos, state) -> {
             BlazeBurnerBlock.HeatLevel value = state.getValue(BlazeBurnerBlock.HEAT_LEVEL);
             if (value == BlazeBurnerBlock.HeatLevel.NONE) {
                 return -1.0F;
