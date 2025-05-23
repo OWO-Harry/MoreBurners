@@ -1,0 +1,39 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "moreburners:electric_burner"
+        }
+      ],
+      "rolls": 1
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "moreburners:heat_upgrade",
+          "conditions": [
+            {
+              "condition": "block_state_property",
+              "block": "moreburners:electric_burner",
+              "properties": {
+                "upgraded": "true"
+              }
+            }
+          ]
+        }
+      ],
+      "rolls": 1
+    }
+  ]
+}

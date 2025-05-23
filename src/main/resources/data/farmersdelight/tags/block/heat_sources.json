@@ -1,0 +1,7 @@
+{
+  "values": [
+    "moreburners:electric_burner",
+    { "id": "moreburners:ember_burner", "required": false },
+    { "id": "moreburners:heat_converter", "required": false }
+  ]
+}

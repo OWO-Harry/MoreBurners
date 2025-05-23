@@ -1,0 +1,64 @@
+{
+	"type": "create:sequenced_assembly",
+	"ingredient": {
+		"item": "create:sturdy_sheet"
+	},
+	"loops": 1,
+	"results": [
+		{
+			"id": "moreburners:heat_upgrade"
+		}
+	],
+	"sequence": [
+		{
+			"type": "create:filling",
+			"ingredients": [
+				{
+					"item": "moreburners:incomplete_heat_upgrade"
+				},
+				{
+					"type": "fluid_stack",
+					"amount": 125,
+					"fluid": "minecraft:lava"
+				}
+			],
+			"results": [
+				{
+					"id": "moreburners:incomplete_heat_upgrade"
+				}
+			]
+		},
+		{
+			"type": "create:deploying",
+			"ingredients": [
+				{
+					"item": "moreburners:incomplete_heat_upgrade"
+				},
+				{
+					"item": "moreburners:nickel_coil"
+				}
+			],
+			"results": [
+				{
+					"id": "moreburners:incomplete_heat_upgrade"
+				}
+			]
+		},
+		{
+			"type": "create:pressing",
+			"ingredients": [
+				{
+					"item": "moreburners:incomplete_heat_upgrade"
+				}
+			],
+			"results": [
+				{
+					"id": "moreburners:incomplete_heat_upgrade"
+				}
+			]
+		}
+	],
+	"transitional_item": {
+		"id": "moreburners:incomplete_heat_upgrade"
+	}
+}

@@ -1,0 +1,31 @@
+{
+  "item.moreburners.copper_coil": "Copper Coil",
+  "item.moreburners.nickel_coil": "Resistance Coil",
+  "item.moreburners.incomplete_heat_upgrade": "Incomplete Heat Upgrade",
+  "item.moreburners.heat_upgrade": "Heat Upgrade",
+  "item.moreburners.converter_cover": "Converter Cover",
+
+  "block.moreburners.ember_burner": "Dwarven Burner",
+  "block.moreburners.electric_burner": "Induction Heater",
+  "block.moreburners.heat_converter": "Heat Converter",
+  "itemGroup.moreburners": "More Burners",
+
+  "moreburners.burner.status.title": "Burner Status:  %1$s",
+  "moreburners.burner.status.none": "None",
+  "moreburners.burner.status.smouldering": "None",
+  "moreburners.burner.status.fading": "Heated",
+  "moreburners.burner.status.kindled": "Heated",
+  "moreburners.burner.status.seething": "Super-Heated",
+  "moreburners.burner.status.heat": "Heat",
+  "moreburners.burner.status.dots": "...... ",
+  "moreburners.burner.status.upgraded": "Upgraded",
+  "moreburners.burner.energy.title": "Energy Consumed:",
+  "moreburners.burner.energy.unit": "FE",
+  "moreburners.burner.ember.title": "Ember Consumed:",
+  "moreburners.burner.per_tick": "per tick",
+
+  "block.pneumaticcraft.heat_converter": "Heat Converter",
+
+  "botania.tagline.exoflame": "Ignites Fuelable Machines and speeds up Furnaces",
+  "botania.page.exoflame0": "Conversely to its $(thing)Generating$(0) counterpart, the $(item)Exoflame$(0) uses $(thing)Mana$(0) to generate heat.$(p)Any $(item)Furnaces$(0) near an active $(item)Exoflame$(0) are fueled and given a speed boost.$(p)$(item)Exoflame$(0) can fueled 9 heated or 1 superheated $(item)Blaze Burners$(0) by default."
+}

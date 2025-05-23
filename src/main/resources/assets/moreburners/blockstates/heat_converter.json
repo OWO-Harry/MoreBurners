@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "moreburners:block/heat_converter/heat_converter"
+    }
+  }
+}

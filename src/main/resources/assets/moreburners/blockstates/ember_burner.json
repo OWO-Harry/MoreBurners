@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "blaze=none": {
+      "model": "moreburners:block/ember_burner/ember_burner"
+    },
+    "blaze=smouldering": {
+      "model": "moreburners:block/ember_burner/ember_burner"
+    },
+    "blaze=fading": {
+      "model": "moreburners:block/ember_burner/ember_burner_fading"
+    },
+    "blaze=kindled": {
+      "model": "moreburners:block/ember_burner/ember_burner_kindled"
+    },
+    "blaze=seething": {
+      "model": "moreburners:block/ember_burner/ember_burner_seething"
+    }
+  }
+}

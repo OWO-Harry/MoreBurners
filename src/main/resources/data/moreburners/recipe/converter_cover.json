@@ -1,0 +1,20 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"result": {
+		"id": "moreburners:converter_cover",
+		"count": 1
+	},
+	"pattern": [
+		"A A",
+		" B ",
+		"A A"
+	],
+	"key": {
+		"A": {
+			"tag": "c:plates/brass"
+		},
+		"B": {
+			"tag": "c:plates/obsidian"
+		}
+	}
+}

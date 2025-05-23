@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "blaze=none,upgraded=false": {
+      "model": "moreburners:block/electric_burner/electric_burner"
+    },
+    "blaze=smouldering,upgraded=false": {
+      "model": "moreburners:block/electric_burner/electric_burner"
+    },
+    "blaze=fading,upgraded=false": {
+      "model": "moreburners:block/electric_burner/electric_burner_kindled"
+    },
+    "blaze=kindled,upgraded=false": {
+      "model": "moreburners:block/electric_burner/electric_burner_kindled"
+    },
+    "blaze=seething,upgraded=false": {
+      "model": "moreburners:block/electric_burner/electric_burner_seething"
+    },
+    "blaze=none,upgraded=true": {
+      "model": "moreburners:block/electric_burner/electric_burner_upgraded"
+    },
+    "blaze=smouldering,upgraded=true": {
+      "model": "moreburners:block/electric_burner/electric_burner_upgraded"
+    },
+    "blaze=fading,upgraded=true": {
+      "model": "moreburners:block/electric_burner/electric_burner_kindled_upgraded"
+    },
+    "blaze=kindled,upgraded=true": {
+      "model": "moreburners:block/electric_burner/electric_burner_kindled_upgraded"
+    },
+    "blaze=seething,upgraded=true": {
+      "model": "moreburners:block/electric_burner/electric_burner_seething_upgraded"
+    }
+  }
+}

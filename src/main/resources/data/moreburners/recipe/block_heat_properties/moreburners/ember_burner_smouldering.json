@@ -1,0 +1,16 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "embers"
+    }
+  ],
+  "type": "pneumaticcraft:heat_properties",
+  "description": "pneumaticcraft.gui.jei.description.create_blaze_burner.smouldering",
+  "block": "moreburners:ember_burner",
+  "predicates": {
+    "blaze": "smouldering"
+  },
+  "temperature": 1000,
+  "thermalResistance": 100000
+}
