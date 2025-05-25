@@ -2,6 +2,7 @@ package net.dragonegg.moreburners.content.block.entity;
 
 import com.simibubi.create.api.equipment.goggles.IHaveGoggleInformation;
 import com.simibubi.create.content.processing.burner.BlazeBurnerBlock;
+import com.simibubi.create.content.processing.burner.BlazeBurnerBlock.HeatLevel;
 import joptsimple.internal.Strings;
 import me.desht.pneumaticcraft.api.PNCCapabilities;
 import me.desht.pneumaticcraft.api.PneumaticRegistry;
@@ -37,11 +38,11 @@ import static net.createmod.catnip.lang.LangBuilder.DEFAULT_SPACE_WIDTH;
 
 public class HeatConverterBlockEntity extends AbstractTickingBlockEntity implements IComparatorSupport, IHeatTinted, IHeatExchangingTE, IHaveGoggleInformation {
 
-    public static final double SEETHING_TEMP = CommonConfig.HEAT_CONVERTER_SEETHING_TEMP.get();
-    public static final double KINDLED_TEMP = CommonConfig.HEAT_CONVERTER_KINDLED_TEMP.get();
-    public static final double FADING_TEMP = CommonConfig.HEAT_CONVERTER_FADING_TEMP.get();
-    public static final double SMOULDERING_TEMP = CommonConfig.HEAT_CONVERTER_SMOULDERING_TEMP.get();
-    public static final double TEMP_COST = CommonConfig.HEAT_CONVERTER_TEMP_COST.get();
+    public static final double SEETHING_TEMP = CommonConfig.PNE_SEETHING_TEMP.get();
+    public static final double KINDLED_TEMP = CommonConfig.PNE_KINDLED_TEMP.get();
+    public static final double FADING_TEMP = CommonConfig.PNE_FADING_TEMP.get();
+    public static final double SMOULDERING_TEMP = CommonConfig.PNE_SMOULDERING_TEMP.get();
+    public static final double TEMP_COST = CommonConfig.PNE_HEAT_CONVERTER_TEMP_COST.get();
     public static final int BAR_LENGTH = ClientConfig.HEAT_BAR_LENGTH.get();
 
     public static final double MAX_TEMP = 2273.0;
@@ -95,11 +96,11 @@ public class HeatConverterBlockEntity extends AbstractTickingBlockEntity impleme
     }
 
     public void updateBlockState() {
-        this.setBlockHeat(this.getHeatLevel());
+        this.setBlockHeat(getHeatLevel(this.heatExchanger.getTemperature()));
     }
 
-    protected void setBlockHeat(BlazeBurnerBlock.HeatLevel heat) {
-        BlazeBurnerBlock.HeatLevel inBlockState = this.getHeatLevelFromBlock();
+    protected void setBlockHeat(HeatLevel heat) {
+        HeatLevel inBlockState = this.getHeatLevelFromBlock();
         if (inBlockState != heat) {
             assert this.level != null;
             this.level.setBlockAndUpdate(this.worldPosition, this.getBlockState().setValue(BlazeBurnerBlock.HEAT_LEVEL, heat));
@@ -107,23 +108,22 @@ public class HeatConverterBlockEntity extends AbstractTickingBlockEntity impleme
         }
     }
 
-    public BlazeBurnerBlock.HeatLevel getHeatLevelFromBlock() {
+    public HeatLevel getHeatLevelFromBlock() {
         return BlazeBurnerBlock.getHeatLevelOf(this.getBlockState());
     }
 
-    protected BlazeBurnerBlock.HeatLevel getHeatLevel() {
+    public static HeatLevel getHeatLevel(double temp) {
+        temp = temp - 273.0F;
+        HeatLevel level = HeatLevel.NONE;
 
-        double temp = this.heatExchanger.getTemperature() - 273.0F;
-
-        BlazeBurnerBlock.HeatLevel level = BlazeBurnerBlock.HeatLevel.NONE;
-        if(temp>=SEETHING_TEMP){
-            level = BlazeBurnerBlock.HeatLevel.SEETHING;
-        }else if(temp>=KINDLED_TEMP){
-            level = BlazeBurnerBlock.HeatLevel.KINDLED;
-        }else if(temp>=FADING_TEMP){
-            level = BlazeBurnerBlock.HeatLevel.FADING;
-        }else if(temp>=SMOULDERING_TEMP){
-            level = BlazeBurnerBlock.HeatLevel.SMOULDERING;
+        if(temp >= SEETHING_TEMP){
+            level = HeatLevel.SEETHING;
+        }else if(temp >= KINDLED_TEMP){
+            level = HeatLevel.KINDLED;
+        }else if(temp >= FADING_TEMP){
+            level = HeatLevel.FADING;
+        }else if(temp >= SMOULDERING_TEMP){
+            level = HeatLevel.SMOULDERING;
         }
 
         return level;
@@ -148,7 +148,7 @@ public class HeatConverterBlockEntity extends AbstractTickingBlockEntity impleme
 
     public boolean addToGoggleTooltip(List<Component> tooltip, boolean isPlayerSneaking) {
 
-        BlazeBurnerBlock.HeatLevel level = this.getHeatLevelFromBlock();
+        HeatLevel level = this.getHeatLevelFromBlock();
         ChatFormatting formatting = switch (level) {
             case NONE,SMOULDERING -> ChatFormatting.WHITE;
             case FADING,KINDLED -> ChatFormatting.GOLD;

@@ -8,6 +8,7 @@ import net.dragonegg.moreburners.registry.*;
 import net.dragonegg.moreburners.config.*;
 
 import net.dragonegg.moreburners.util.BoilerHeaterRegistry;
+import net.minecraft.resources.ResourceLocation;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.ModList;
@@ -15,7 +16,6 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.ModConfigSpec;
-import net.neoforged.neoforge.common.NeoForge;
 
 @Mod(MoreBurners.MODID)
 public class MoreBurners {
@@ -38,6 +38,10 @@ public class MoreBurners {
             PneumaticCraftCompat.init();
         }
 
+    }
+
+    public static ResourceLocation RL(String path) {
+        return ResourceLocation.fromNamespaceAndPath(MODID, path);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {

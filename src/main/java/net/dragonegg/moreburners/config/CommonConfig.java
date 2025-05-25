@@ -30,11 +30,12 @@ public class CommonConfig {
     public static ConfigValue<Double> ELECTRIC_BURNER_UPGRADED_MAX_HEAT;
     public static ConfigValue<Double> ELECTRIC_BURNER_HEATING_RATE;
     public static ConfigValue<Double> ELECTRIC_BURNER_COOLING_RATE;
-    public static ConfigValue<Double> HEAT_CONVERTER_SEETHING_TEMP;
-    public static ConfigValue<Double> HEAT_CONVERTER_KINDLED_TEMP;
-    public static ConfigValue<Double> HEAT_CONVERTER_FADING_TEMP;
-    public static ConfigValue<Double> HEAT_CONVERTER_SMOULDERING_TEMP;
-    public static ConfigValue<Double> HEAT_CONVERTER_TEMP_COST;
+    public static ConfigValue<Double> PNE_SEETHING_TEMP;
+    public static ConfigValue<Double> PNE_KINDLED_TEMP;
+    public static ConfigValue<Double> PNE_FADING_TEMP;
+    public static ConfigValue<Double> PNE_SMOULDERING_TEMP;
+    public static ConfigValue<Double> PNE_TEMP_COST;
+    public static ConfigValue<Double> PNE_HEAT_CONVERTER_TEMP_COST;
     public static ConfigValue<Integer> EXOFLAME_BOOST_RATE;
     public static ConfigValue<Integer> EXOFLAME_SEETHING_BOOST_RATE;
 
@@ -76,12 +77,13 @@ public class CommonConfig {
         }
 
         if(MoreBurners.loadedPNE()) {
-            COMMON_BUILDER.comment("Settings for heat converter's parameters").push("heat_converter");
-            HEAT_CONVERTER_SEETHING_TEMP = COMMON_BUILDER.comment("The minimum temperature required to become seething. (super heating)").define("seething_temp", 1200.0);
-            HEAT_CONVERTER_KINDLED_TEMP = COMMON_BUILDER.comment("The minimum temperature required to become kindled. (heating)").define("kindled_temp", 450.0);
-            HEAT_CONVERTER_FADING_TEMP = COMMON_BUILDER.comment("The minimum temperature required to become fading. (heating)").define("fading_temp", 400.0);
-            HEAT_CONVERTER_SMOULDERING_TEMP = COMMON_BUILDER.comment("The minimum temperature required to become smouldering.").define("smouldering_temp", 200.0);
-            HEAT_CONVERTER_TEMP_COST = COMMON_BUILDER.comment("The amount of temperature decreased per tick.").define("temp_cost", 2.0);
+            COMMON_BUILDER.comment("Pneumatic Craft Compat Configs").push("pne_compat");
+            PNE_SEETHING_TEMP = COMMON_BUILDER.comment("The minimum temperature required to become seething. (super heating)").define("seething_temp", 1200.0);
+            PNE_KINDLED_TEMP = COMMON_BUILDER.comment("The minimum temperature required to become kindled. (heating)").define("kindled_temp", 450.0);
+            PNE_FADING_TEMP = COMMON_BUILDER.comment("The minimum temperature required to become fading. (heating)").define("fading_temp", 400.0);
+            PNE_SMOULDERING_TEMP = COMMON_BUILDER.comment("The minimum temperature required to become smouldering.").define("smouldering_temp", 200.0);
+            PNE_TEMP_COST = COMMON_BUILDER.comment("The amount of temperature decreased per tick when using heat device directly.").define("temp_cost", 5.0);
+            PNE_HEAT_CONVERTER_TEMP_COST = COMMON_BUILDER.comment("The amount of temperature decreased per tick.").define("heat_converter_temp_cost", 2.0);
             COMMON_BUILDER.pop();
         }
 

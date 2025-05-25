@@ -1,4 +1,4 @@
-package net.dragonegg.moreburners.mixin.category;
+package net.dragonegg.moreburners.mixin;
 
 import com.simibubi.create.AllBlocks;
 import com.simibubi.create.AllItems;
@@ -42,7 +42,7 @@ public class BasinCategoryMixin {
         if (!requiredHeat.testBlazeBurner(BlazeBurnerBlock.HeatLevel.KINDLED)) {
             IRecipeSlotBuilder built = builder.addSlot(RecipeIngredientRole.CATALYST, 153, 81);
             BurnerUtil.initCatalyst();
-            for(Block burner:BurnerUtil.getBurners()) {
+            for(Block burner : BurnerUtil.getBurners()) {
                 built.addItemStack(BurnerUtil.CATALYST.get(burner).getDefaultInstance());
             }
             built.addItemStack(AllItems.BLAZE_CAKE.asStack());

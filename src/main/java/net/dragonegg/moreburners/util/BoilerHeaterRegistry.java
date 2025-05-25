@@ -2,29 +2,57 @@ package net.dragonegg.moreburners.util;
 
 import com.simibubi.create.api.boiler.BoilerHeater;
 import com.simibubi.create.content.processing.burner.BlazeBurnerBlock;
+import com.simibubi.create.content.processing.burner.BlazeBurnerBlock.HeatLevel;
+import me.desht.pneumaticcraft.api.heat.IHeatExchangerLogic;
+import me.desht.pneumaticcraft.common.block.entity.IHeatExchangingTE;
+import me.desht.pneumaticcraft.common.registry.ModBlockEntityTypes;
+import net.dragonegg.moreburners.MoreBurners;
 import net.dragonegg.moreburners.content.block.BaseBurnerBlock;
+import net.dragonegg.moreburners.content.block.entity.HeatConverterBlockEntity;
+import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.Block;
 
 public class BoilerHeaterRegistry {
 
     public static void registerBoilerHeaters() {
         for (Block block : BurnerUtil.getBurners()) {
-            register(block);
+            registerBurners(block);
+        }
+
+        if (MoreBurners.loadedPNE()) {
+            registerPNEBlocks();
         }
     }
 
-    public static void register(Block block) {
+    public static float fromHeatLevel(HeatLevel value) {
+        return switch (value) {
+            case NONE -> BoilerHeater.NO_HEAT;
+            case SMOULDERING -> BoilerHeater.PASSIVE_HEAT;
+            case FADING, KINDLED -> 1;
+            case SEETHING -> 2;
+        };
+    }
+
+    public static void registerBurners(Block block) {
         if (!(block instanceof BaseBurnerBlock)) {
             return;
         }
-        BoilerHeater.REGISTRY.register(block, (level, pos, state) -> {
-            BlazeBurnerBlock.HeatLevel value = state.getValue(BlazeBurnerBlock.HEAT_LEVEL);
-            if (value == BlazeBurnerBlock.HeatLevel.NONE) {
-                return -1.0F;
-            } else if (value == BlazeBurnerBlock.HeatLevel.SEETHING) {
-                return 2.0F;
-            } else {
-                return value.isAtLeast(BlazeBurnerBlock.HeatLevel.FADING) ? 1.0F : 0.0F;
+        BoilerHeater.REGISTRY.register(block, (level, pos, state) ->
+                fromHeatLevel(state.getValue(BlazeBurnerBlock.HEAT_LEVEL)));
+    }
+
+    public static void registerPNEBlocks() {
+        ModBlockEntityTypes.streamBlockEntities().forEach(be -> {
+            if (be instanceof IHeatExchangingTE) {
+                BoilerHeater.REGISTRY.register(be.getBlockState().getBlock(), ((level, pos, state) -> {
+                    if (level.getBlockEntity(pos) instanceof IHeatExchangingTE heatTE) {
+                        IHeatExchangerLogic logic = heatTE.getHeatExchanger(Direction.UP);
+                        if (logic != null) {
+                            return fromHeatLevel(HeatConverterBlockEntity.getHeatLevel(logic.getTemperature()));
+                        }
+                    }
+                    return BoilerHeater.NO_HEAT;
+                }));
             }
         });
     }
