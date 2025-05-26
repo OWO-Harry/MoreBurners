@@ -19,8 +19,10 @@ public class HeatBehaviourBoiler extends HeatBehaviour {
         super.initialize(logic, level, pos, dir);
         if (isApplicable()) {
             logic.addTemperatureListener((prev, curr) -> {
-                BoilerData boiler = ((FluidTankBlockEntity) getCachedTileEntity()).getControllerBE().boiler;
-                boiler.needsHeatLevelUpdate = true;
+                if (isApplicable()) {
+                    BoilerData boiler = ((FluidTankBlockEntity) getCachedTileEntity()).getControllerBE().boiler;
+                    boiler.needsHeatLevelUpdate = true;
+                }
             });
         }
         return this;
