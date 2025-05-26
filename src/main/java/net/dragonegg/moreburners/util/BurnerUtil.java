@@ -2,6 +2,7 @@ package net.dragonegg.moreburners.util;
 
 import com.rekindled.embers.RegistryManager;
 import com.simibubi.create.content.processing.burner.BlazeBurnerBlock.HeatLevel;
+import net.dragonegg.moreburners.MoreBurners;
 import net.dragonegg.moreburners.compat.embers.EmbersCompat;
 import net.dragonegg.moreburners.compat.pneumaticcraft.PneumaticCraftCompat;
 import net.dragonegg.moreburners.content.block.BaseBurnerBlock;
@@ -25,10 +26,10 @@ public class BurnerUtil {
     public static HashMap<Block, Item> CATALYST = new HashMap<>();
 
     public static void initCatalyst() {
-        if(ModList.get().isLoaded("embers")) {
+        if(MoreBurners.loadedEmber()) {
             CATALYST.put(EmbersCompat.EMBER_BURNER.get(), RegistryManager.ATMOSPHERIC_BELLOWS_ITEM.get());
         }
-        if(ModList.get().isLoaded("pneumaticcraft")) {
+        if(MoreBurners.loadedPNE()) {
             CATALYST.put(PneumaticCraftCompat.HEAT_CONVERTER.get(), Items.AIR);
         }
         CATALYST.put(BlockRegistry.ELECTRIC_BURNER.get(), ItemRegistry.HEAT_UPGRADE.get());

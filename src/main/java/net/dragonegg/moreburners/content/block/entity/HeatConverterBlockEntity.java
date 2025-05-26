@@ -38,11 +38,11 @@ import static net.createmod.catnip.lang.LangBuilder.DEFAULT_SPACE_WIDTH;
 
 public class HeatConverterBlockEntity extends AbstractTickingBlockEntity implements IComparatorSupport, IHeatTinted, IHeatExchangingTE, IHaveGoggleInformation {
 
-    public static final double SEETHING_TEMP = CommonConfig.HEAT_CONVERTER_SEETHING_TEMP.get();
-    public static final double KINDLED_TEMP = CommonConfig.HEAT_CONVERTER_KINDLED_TEMP.get();
-    public static final double FADING_TEMP = CommonConfig.HEAT_CONVERTER_FADING_TEMP.get();
-    public static final double SMOULDERING_TEMP = CommonConfig.HEAT_CONVERTER_SMOULDERING_TEMP.get();
-    public static final double TEMP_COST = CommonConfig.HEAT_CONVERTER_TEMP_COST.get();
+    public static final double SEETHING_TEMP = CommonConfig.PNE_SEETHING_TEMP.get();
+    public static final double KINDLED_TEMP = CommonConfig.PNE_KINDLED_TEMP.get();
+    public static final double FADING_TEMP = CommonConfig.PNE_FADING_TEMP.get();
+    public static final double SMOULDERING_TEMP = CommonConfig.PNE_SMOULDERING_TEMP.get();
+    public static final double TEMP_COST = CommonConfig.PNE_HEAT_CONVERTER_TEMP_COST.get();
     public static final int BAR_LENGTH = ClientConfig.HEAT_BAR_LENGTH.get();
 
     public static final double MAX_TEMP = 2273.0;
@@ -89,7 +89,7 @@ public class HeatConverterBlockEntity extends AbstractTickingBlockEntity impleme
     }
 
     public void updateBlockState() {
-        this.setBlockHeat(this.getHeatLevel());
+        this.setBlockHeat(this.getHeatLevel(this.heatExchanger.getTemperature()));
     }
 
     protected void setBlockHeat(BlazeBurnerBlock.HeatLevel heat) {
@@ -105,18 +105,17 @@ public class HeatConverterBlockEntity extends AbstractTickingBlockEntity impleme
         return BlazeBurnerBlock.getHeatLevelOf(this.getBlockState());
     }
 
-    protected BlazeBurnerBlock.HeatLevel getHeatLevel() {
-
-        double temp = this.heatExchanger.getTemperature() - 273.0F;
-
+    public static BlazeBurnerBlock.HeatLevel getHeatLevel(double temp) {
+        temp = temp - 273.0F;
         BlazeBurnerBlock.HeatLevel level = BlazeBurnerBlock.HeatLevel.NONE;
-        if(temp>=SEETHING_TEMP){
+
+        if(temp >= SEETHING_TEMP){
             level = BlazeBurnerBlock.HeatLevel.SEETHING;
-        }else if(temp>=KINDLED_TEMP){
+        }else if(temp >= KINDLED_TEMP){
             level = BlazeBurnerBlock.HeatLevel.KINDLED;
-        }else if(temp>=FADING_TEMP){
+        }else if(temp >= FADING_TEMP){
             level = BlazeBurnerBlock.HeatLevel.FADING;
-        }else if(temp>=SMOULDERING_TEMP){
+        }else if(temp >= SMOULDERING_TEMP){
             level = BlazeBurnerBlock.HeatLevel.SMOULDERING;
         }
 

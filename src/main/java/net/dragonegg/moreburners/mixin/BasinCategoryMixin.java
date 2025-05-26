@@ -1,6 +1,5 @@
-package net.dragonegg.moreburners.mixin.category;
+package net.dragonegg.moreburners.mixin;
 
-import com.rekindled.embers.RegistryManager;
 import com.simibubi.create.AllBlocks;
 import com.simibubi.create.AllItems;
 import com.simibubi.create.compat.jei.category.BasinCategory;
@@ -11,7 +10,6 @@ import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.builder.IRecipeSlotBuilder;
 import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
-import net.dragonegg.moreburners.registry.ItemRegistry;
 import net.dragonegg.moreburners.util.BurnerUtil;
 import net.minecraft.world.level.block.Block;
 import org.spongepowered.asm.mixin.Mixin;

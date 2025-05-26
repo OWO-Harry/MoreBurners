@@ -10,6 +10,7 @@ import net.dragonegg.moreburners.registry.ItemRegistry;
 import net.dragonegg.moreburners.registry.SoundRegistry;
 import net.dragonegg.moreburners.registry.TabRegistry;
 import net.dragonegg.moreburners.util.BoilerHeaterRegistry;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.server.ServerStartingEvent;
@@ -52,22 +53,25 @@ public class MoreBurners {
 
     }
 
+    public static ResourceLocation RL(String path) {
+        return new ResourceLocation(MODID, path);
+    }
+
     private void commonSetup(final FMLCommonSetupEvent event) {
         BoilerHeaterRegistry.registerBoilerHeaters();
         Events.register(MinecraftForge.EVENT_BUS);
     }
 
-    @SubscribeEvent
-    public void onServerStarting(ServerStartingEvent event) {
-
+    public static boolean loadedEmber() {
+        return ModList.get().isLoaded("embers");
     }
 
-    @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
-    public static class ClientModEvents {
-        @SubscribeEvent
-        public static void onClientSetup(FMLClientSetupEvent event) {
-            //PonderIndex.register();
-        }
+    public static boolean loadedPNE() {
+        return ModList.get().isLoaded("pneumaticcraft");
+    }
+
+    public static boolean loadedBotania() {
+        return ModList.get().isLoaded("botania");
     }
 
 }
