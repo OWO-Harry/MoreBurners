@@ -4,7 +4,6 @@ import com.simibubi.create.api.equipment.goggles.IHaveGoggleInformation;
 import com.simibubi.create.content.processing.burner.BlazeBurnerBlock;
 import com.simibubi.create.content.processing.burner.BlazeBurnerBlock.HeatLevel;
 import joptsimple.internal.Strings;
-import me.desht.pneumaticcraft.api.PNCCapabilities;
 import me.desht.pneumaticcraft.api.PneumaticRegistry;
 import me.desht.pneumaticcraft.api.heat.IHeatExchangerLogic;
 import me.desht.pneumaticcraft.client.util.TintColor;
@@ -29,7 +28,6 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 
 import java.util.List;
 
@@ -62,14 +60,6 @@ public class HeatConverterBlockEntity extends AbstractTickingBlockEntity impleme
         this.comparatorOutput = 0;
         this.syncedTemperature = new SyncedTemperature(this.heatExchanger);
         this.heatExchanger.setThermalCapacity(10.0F);
-    }
-
-    public static void registerCapabilities(RegisterCapabilitiesEvent event) {
-        event.registerBlockEntity(
-                PNCCapabilities.HEAT_EXCHANGER_BLOCK,
-                PneumaticCraftCompat.HEAT_CONVERTER_ENTITY.get(),
-                HeatConverterBlockEntity::getHeatExchanger
-        );
     }
 
     public void tick(Level level, BlockPos pos, BlockState state) {

@@ -2,7 +2,6 @@ package net.dragonegg.moreburners.mixin;
 
 import com.llamalad7.mixinextras.sugar.Local;
 import com.simibubi.create.content.fluids.tank.FluidTankBlockEntity;
-import me.desht.pneumaticcraft.common.block.HeatPipeBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.Level;

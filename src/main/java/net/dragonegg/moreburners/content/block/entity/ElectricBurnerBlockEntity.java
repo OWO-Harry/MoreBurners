@@ -9,7 +9,6 @@ import net.dragonegg.moreburners.content.block.ElectricBurnerBlock;
 import net.dragonegg.moreburners.registry.BlockRegistry;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.IntTag;
@@ -17,8 +16,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.util.Mth;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import net.neoforged.neoforge.capabilities.Capabilities;
-import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 import net.neoforged.neoforge.energy.EnergyStorage;
 import org.jetbrains.annotations.NotNull;
 
@@ -64,14 +61,6 @@ public class ElectricBurnerBlockEntity extends BaseBurnerBlockEntity {
         nbt.putInt("energy", this.energy.getEnergyStored());
         nbt.putBoolean("upgraded", this.upgraded);
         return nbt;
-    }
-
-    public static void registerCapabilities(RegisterCapabilitiesEvent event) {
-        event.registerBlockEntity(
-                Capabilities.EnergyStorage.BLOCK,
-                BlockRegistry.ELECTRIC_BURNER_ENTITY.get(),
-                (be, context) -> be.energy
-        );
     }
 
     public void setUpgrade(boolean upgraded) {
