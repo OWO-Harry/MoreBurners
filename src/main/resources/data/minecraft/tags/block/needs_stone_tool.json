@@ -1,6 +1,5 @@
 {
   "values": [
-    "moreburners:electric_burner",
-    { "id": "moreburners:ember_burner", "required": false }
+    "moreburners:electric_burner"
   ]
 }

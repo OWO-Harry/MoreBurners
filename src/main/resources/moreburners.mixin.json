@@ -1,13 +1,14 @@
 {
   "required": false,
   "package": "net.dragonegg.moreburners.mixin",
-  "compatibilityLevel": "JAVA_17",
+  "compatibilityLevel": "JAVA_21",
+  "plugin": "net.dragonegg.moreburners.mixin.MoreBurnersMixinPlugin",
   "mixins": [
     "AnimatedBlazeBurnerMixin",
     "BasinCategoryMixin",
-    "BasinRecipeMixin",
-    "FluidTankBlockEntityMixin",
-    "HeatPipeBlockMixin"
+    "compat.BasinRecipeMixin",
+    "compat.FluidTankBlockEntityMixin",
+    "compat.HeatPipeBlockMixin"
   ],
   "refmap": "moreburners.refmap.json"
 }
