@@ -11,14 +11,10 @@ import net.dragonegg.moreburners.registry.SoundRegistry;
 import net.dragonegg.moreburners.registry.TabRegistry;
 import net.dragonegg.moreburners.util.BoilerHeaterRegistry;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
@@ -43,11 +39,11 @@ public class MoreBurners {
         ClientConfig.registerClientConfig();
         MinecraftForge.EVENT_BUS.register(this);
 
-        if (ModList.get().isLoaded("embers")) {
+        if (loadedEmber()) {
             EmbersCompat.init();
         }
 
-        if (ModList.get().isLoaded("pneumaticcraft")) {
+        if (loadedPNE()) {
             PneumaticCraftCompat.init();
         }
 

@@ -167,7 +167,7 @@ dependencies {
     runtimeOnly fg.deobf("curse.maven:embers-rekindled-300777:5571196")
 
     compileOnly fg.deobf("curse.maven:pneumaticcraft-repressurized-281849:5680613")
-    runtimeOnly fg.deobf("curse.maven:pneumaticcraft-repressurized-281849:5680613")
+//    runtimeOnly fg.deobf("curse.maven:pneumaticcraft-repressurized-281849:5680613")
 
     compileOnly fg.deobf("vazkii.botania:Botania:${minecraft_version}-${botania_version}-FORGE")
     //runtimeOnly fg.deobf("vazkii.botania:Botania:${minecraft_version}-${botania_version}-FORGE")
@@ -178,6 +178,9 @@ dependencies {
     runtimeOnly fg.deobf("curse.maven:immersive-engineering-231951:5224387")
     runtimeOnly fg.deobf("curse.maven:time-in-a-bottle-universal-895919:4744787")
     runtimeOnly fg.deobf("curse.maven:mekanism-268560:5984829")
+//    runtimeOnly fg.deobf("curse.maven:architectury-api-419699:5137938")
+//    runtimeOnly fg.deobf("curse.maven:rhino-416294:6186971")
+//    runtimeOnly fg.deobf("curse.maven:kubejs-238086:5853326")
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 

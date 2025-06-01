@@ -1,4 +1,4 @@
-package net.dragonegg.moreburners.mixin;
+package net.dragonegg.moreburners.mixin.compat;
 
 import com.llamalad7.mixinextras.sugar.Local;
 import com.simibubi.create.content.processing.basin.BasinBlockEntity;

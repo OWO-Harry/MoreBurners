@@ -1,4 +1,4 @@
-package net.dragonegg.moreburners.mixin;
+package net.dragonegg.moreburners.mixin.compat;
 
 import com.llamalad7.mixinextras.sugar.Local;
 import me.desht.pneumaticcraft.common.block.HeatPipeBlock;
