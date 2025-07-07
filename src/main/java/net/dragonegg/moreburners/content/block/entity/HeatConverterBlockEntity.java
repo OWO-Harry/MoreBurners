@@ -41,7 +41,6 @@ public class HeatConverterBlockEntity extends AbstractTickingBlockEntity impleme
     public static final double FADING_TEMP = CommonConfig.PNE_FADING_TEMP.get();
     public static final double SMOULDERING_TEMP = CommonConfig.PNE_SMOULDERING_TEMP.get();
     public static final double TEMP_COST = CommonConfig.PNE_HEAT_CONVERTER_TEMP_COST.get();
-    public static final int BAR_LENGTH = ClientConfig.HEAT_BAR_LENGTH.get();
 
     public static final double MAX_TEMP = 2273.0;
 
@@ -168,7 +167,7 @@ public class HeatConverterBlockEntity extends AbstractTickingBlockEntity impleme
     }
 
     public MutableComponent getHeatComponent(boolean forGoggles) {
-        int level = (int) (this.syncedTemperature.getSyncedTemp() * BAR_LENGTH / MAX_TEMP);
+        int level = (int) (this.syncedTemperature.getSyncedTemp() * ClientConfig.HEAT_BAR_LENGTH.get() / MAX_TEMP);
         return componentHelper(level, forGoggles);
     }
 
@@ -176,7 +175,7 @@ public class HeatConverterBlockEntity extends AbstractTickingBlockEntity impleme
         MutableComponent base =
                 Component.empty()
                         .append(bars(level, ChatFormatting.DARK_GREEN))
-                        .append(bars(BAR_LENGTH-level, ChatFormatting.DARK_RED));
+                        .append(bars(ClientConfig.HEAT_BAR_LENGTH.get()-level, ChatFormatting.DARK_RED));
 
         if (!forGoggles)
             return base;

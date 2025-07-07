@@ -9,7 +9,6 @@ import net.createmod.catnip.lang.LangBuilder;
 import net.dragonegg.moreburners.MoreBurners;
 import net.dragonegg.moreburners.config.ClientConfig;
 import net.dragonegg.moreburners.config.CommonConfig;
-import net.dragonegg.moreburners.content.block.BaseBurnerBlock;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
@@ -40,7 +39,6 @@ public abstract class BaseBurnerBlockEntity extends BlockEntity implements IHave
     public static final double KINDLED_HEAT = CommonConfig.KINDLED_HEAT.get();
     public static final double FADING_HEAT = CommonConfig.FADING_HEAT.get();
     public static final double SMOULDERING_HEAT = CommonConfig.SMOULDERING_HEAT.get();
-    public static final int BAR_LENGTH = ClientConfig.HEAT_BAR_LENGTH.get();
 
     public double heat;
     public double max_heat;
@@ -173,7 +171,7 @@ public abstract class BaseBurnerBlockEntity extends BlockEntity implements IHave
     }
 
     public MutableComponent getHeatComponent(boolean forGoggles) {
-        int level = (int) (this.heat*BAR_LENGTH/this.max_heat);
+        int level = (int) (this.heat*ClientConfig.HEAT_BAR_LENGTH.get()/this.max_heat);
         return componentHelper(level, forGoggles);
     }
 
@@ -181,7 +179,7 @@ public abstract class BaseBurnerBlockEntity extends BlockEntity implements IHave
         MutableComponent base =
                 Component.empty()
                         .append(bars(level, ChatFormatting.DARK_GREEN))
-                        .append(bars(BAR_LENGTH-level, ChatFormatting.DARK_RED));
+                        .append(bars(ClientConfig.HEAT_BAR_LENGTH.get()-level, ChatFormatting.DARK_RED));
 
         if (!forGoggles)
             return base;
