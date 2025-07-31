@@ -1,6 +1,6 @@
 package net.dragonegg.moreburners.mixin;
 
-import net.dragonegg.moreburners.MoreBurners;
+import net.minecraftforge.fml.loading.LoadingModList;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
@@ -23,7 +23,8 @@ public class MoreBurnersMixinPlugin implements IMixinConfigPlugin {
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
         return !(targetClassName.equals("com.simibubi.create.content.processing.basin.BasinRecipe") ||
                 targetClassName.equals("com.simibubi.create.content.fluids.tank.FluidTankBlockEntity") ||
-                targetClassName.equals("me.desht.pneumaticcraft.common.block.HeatPipeBlock")) || MoreBurners.loadedPNE();
+                targetClassName.equals("me.desht.pneumaticcraft.common.block.HeatPipeBlock")) ||
+                LoadingModList.get().getModFileById("pneumaticcraft") != null;
     }
 
     public void acceptTargets(Set<String> myTargets, Set<String> otherTargets) {
