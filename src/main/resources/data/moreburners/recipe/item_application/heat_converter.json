@@ -1,5 +1,11 @@
 {
   "type": "create:item_application",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "pneumaticcraft"
+    }
+  ],
   "ingredients": [
     {
       "tag": "c:storage_blocks/compressed_iron"

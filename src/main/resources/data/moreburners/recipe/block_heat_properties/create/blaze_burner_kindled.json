@@ -2,7 +2,7 @@
    "neoforge:conditions": [
       {
          "type": "neoforge:mod_loaded",
-         "modid": "create"
+         "modid": "pneumaticcraft"
       }
    ],
    "type" : "pneumaticcraft:heat_properties",

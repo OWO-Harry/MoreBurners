@@ -2,7 +2,7 @@
    "neoforge:conditions": [
       {
          "type": "neoforge:mod_loaded",
-         "modid": "create"
+         "modid": "pneumaticcraft"
       }
    ],
    "description" : "pneumaticcraft.gui.jei.description.create_blaze_burner.seething",
