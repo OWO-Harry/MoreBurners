@@ -1,0 +1,31 @@
+{
+  "item.moreburners.copper_coil": "Bobina de cobre",
+  "item.moreburners.nickel_coil": "Bobina de resistencia",
+  "item.moreburners.incomplete_heat_upgrade": "Mejora de calor incompleta",
+  "item.moreburners.heat_upgrade": "Mejora de calor",
+  "item.moreburners.converter_cover": "Cubierta del convertidor",
+
+  "block.moreburners.ember_burner": "Quemador enano",
+  "block.moreburners.electric_burner": "Calentador por inducción",
+  "block.moreburners.heat_converter": "Convertidor de calor",
+  "itemGroup.moreburners": "More Burners",
+
+  "moreburners.burner.status.title": "Estado del quemador: %1$s",
+  "moreburners.burner.status.none": "Ninguno",
+  "moreburners.burner.status.smouldering": "Ninguno",
+  "moreburners.burner.status.fading": "Calentado",
+  "moreburners.burner.status.kindled": "Calentado",
+  "moreburners.burner.status.seething": "Sobrecalentado",
+  "moreburners.burner.status.heat": "Calor",
+  "moreburners.burner.status.dots": "...... ",
+  "moreburners.burner.status.upgraded": "Mejorado",
+  "moreburners.burner.energy.title": "Energía consumida:",
+  "moreburners.burner.energy.unit": "FE",
+  "moreburners.burner.ember.title": "Ascua consumida:",
+  "moreburners.burner.per_tick": "por tick",
+
+  "block.pneumaticcraft.heat_converter": "Convertidor de calor",
+
+  "botania.tagline.exoflame": "Enciende máquinas combustibles y acelera hornos",
+  "botania.page.exoflame0": "A diferencia de su contraparte $(thing)Generadora$(0), la $(item)Exoflama$(0) usa $(thing)Maná$(0) para generar calor.$(p)Cualquier $(item)Horno$(0) cerca de una $(item)Exoflama$(0) activa recibe combustible y una bonificación de velocidad.$(p)La $(item)Exoflama$(0) puede alimentar 9 $(item)Quemadores de llamas$(0) calentados o 1 sobrecalentado por defecto."
+}
